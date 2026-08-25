@@ -14,6 +14,20 @@ python3 -m http.server 8080
 
 Then open http://127.0.0.1:8080
 
+## Impeccable
+
+Design skill for Cursor is installed in `.cursor/skills/impeccable`. Reload the window if `/impeccable` does not appear.
+
+```
+/impeccable polish      # final pass on a page
+/impeccable critique    # UX review
+/impeccable live        # iterate on a page in the browser
+```
+
+Product truth is in `PRODUCT.md`. Visual tokens are in `DESIGN.md`. Do not invent portrait, bio, hobbies, or demo footage.
+
+Reload Cursor once so `/impeccable` is picked up.
+
 ## Content to fill in later
 
 - Portrait: drop a square-ish photo at `assets/portrait.jpg`

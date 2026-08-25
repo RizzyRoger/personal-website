@@ -6,63 +6,118 @@
     <title>Roger Wei</title>
     <meta
       name="description"
-      content="About Roger Wei — a few things I make, and a few things I care about."
+      content="Roger Wei — about, Marvin, and Lithium."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@600;700&family=Saira:ital,wght@0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/main.js" defer></script>
   </head>
   <body data-page="about">
-    <header class="site-header">
-      <nav class="topbar" aria-label="Primary">
-        <a class="nav-link" data-nav="about" href="index.html">About me</a>
-        <div class="nav-projects">
-          <a class="nav-link" data-nav="marvin" href="marvin/">Marvin</a>
-          <a class="nav-link" data-nav="lithium" href="lithium/">Lithium</a>
+    <!--
+      THESIS: The About page is a wrap plotter feeding empty vinyl sheets; it refuses a centered cream letter and it refuses a parked car.
+      OWN-WORLD: Black shop, unprinted grey vinyl, cutter-red path, Saira Extra Condensed job lettering, roll-edge keys.
+      STORY: A visitor reads ROGER WEI on the cutter, sees an empty portrait sheet, then opens Marvin or Lithium from the roll.
+      FIRST VIEWPORT: Sticky cutter rail with ROGER WEI. Tall roll at left: About me / Marvin / Lithium. Huge empty PORTRAIT sheet. BIO and NOW already in the feed.
+      FORM: Vinyl Plot (Impeccable pick) · Feed roll composition · seed ede29f77
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+    -->
+    <a class="skip" href="#portrait">Skip to portrait</a>
+
+    <div class="shop">
+      <header class="rail">
+        <div class="job-lockup">
+          <h1 class="job">Roger Wei</h1>
+          <img class="rw" src="assets/rw-script.png" alt="" width="72" height="72" />
         </div>
-      </nav>
-    </header>
+        <p class="job-meta">Plot · unprinted</p>
+      </header>
 
-    <main class="page">
-      <section class="hero">
-        <p class="kicker">About me</p>
-        <h1 class="name">Roger Wei</h1>
-
-        <figure class="portrait" data-src="assets/portrait.jpg" aria-label="Portrait placeholder">
-          <figcaption class="portrait-hint">Your photo here</figcaption>
-        </figure>
-
-        <p class="bio">
-          A short note about who I am, what I am working on, and how I spend my
-          time. Replace this paragraph when you are ready.
-        </p>
-      </section>
-
-      <section aria-labelledby="hobbies-heading">
-        <h2 class="section-title" id="hobbies-heading">Hobbies</h2>
-        <div class="hobby-grid">
-          <article class="hobby-card">
-            <p class="hobby-label">Hobby</p>
-            <p class="hobby-title"></p>
-            <p class="hobby-note"></p>
-          </article>
-          <article class="hobby-card">
-            <p class="hobby-label">Hobby</p>
-            <p class="hobby-title"></p>
-            <p class="hobby-note"></p>
-          </article>
-          <article class="hobby-card">
-            <p class="hobby-label">Hobby</p>
-            <p class="hobby-title"></p>
-            <p class="hobby-note"></p>
-          </article>
+      <div class="bed">
+        <div class="cutter-head" aria-hidden="true">
+          <img class="carriage" src="assets/cutter-head.png" alt="" />
+          <span class="laser"></span>
         </div>
-      </section>
-    </main>
+
+        <nav class="roll" aria-label="Primary">
+          <span class="roll-core" aria-hidden="true"></span>
+          <a class="roll-link" data-nav="about" href="./">About me</a>
+          <a class="roll-link" data-nav="marvin" href="marvin/">Marvin</a>
+          <a class="roll-link" data-nav="lithium" href="lithium/">Lithium</a>
+        </nav>
+
+        <main class="feed">
+          <section class="sheet sheet-hero" id="portrait">
+            <figure class="vinyl vinyl-portrait" data-src="assets/portrait.jpg">
+              <span class="on-sheet">Portrait</span>
+            </figure>
+            <p class="slot-note">Empty sheet — photo loads from assets/portrait.jpg</p>
+          </section>
+
+          <section class="sheet" id="bio">
+            <h2 class="mark">Bio</h2>
+            <div class="vinyl vinyl-copy" data-slot="bio">
+              <p class="slot-copy">Empty vinyl. A short bio goes here.</p>
+            </div>
+          </section>
+
+          <section class="sheet" id="now">
+            <h2 class="mark">Now</h2>
+            <div class="vinyl vinyl-copy" data-slot="now">
+              <p class="slot-copy">Empty. What you’re on lately.</p>
+            </div>
+          </section>
+
+          <section class="sheet" id="photos">
+            <h2 class="mark">Photos</h2>
+            <div class="vinyl-grid" data-slot="photos">
+              <div class="vinyl vinyl-tile"></div>
+              <div class="vinyl vinyl-tile"></div>
+              <div class="vinyl vinyl-tile"></div>
+              <div class="vinyl vinyl-tile"></div>
+            </div>
+            <p class="slot-note">Four empty sheets.</p>
+          </section>
+
+          <section class="sheet" id="hobbies">
+            <h2 class="mark">Hobbies</h2>
+            <div class="vinyl-grid vinyl-grid-3">
+              <div class="vinyl vinyl-tile" data-slot="hobby-1"><span>Hobby</span></div>
+              <div class="vinyl vinyl-tile" data-slot="hobby-2"><span>Hobby</span></div>
+              <div class="vinyl vinyl-tile" data-slot="hobby-3"><span>Hobby</span></div>
+            </div>
+          </section>
+
+          <section class="sheet" id="years">
+            <h2 class="mark">Years</h2>
+            <ol class="year-row" data-slot="years">
+              <li class="vinyl vinyl-year"><span>—</span></li>
+              <li class="vinyl vinyl-year"><span>—</span></li>
+              <li class="vinyl vinyl-year"><span>—</span></li>
+              <li class="vinyl vinyl-year"><span>—</span></li>
+            </ol>
+            <p class="slot-note">Empty year windows.</p>
+          </section>
+
+          <section class="sheet" id="contact">
+            <h2 class="mark">Contact</h2>
+            <div class="vinyl vinyl-copy" data-slot="contact">
+              <p class="slot-copy">Empty. Mail, elsewhere — when you have them.</p>
+            </div>
+          </section>
+
+          <section class="sheet" id="resume">
+            <h2 class="mark">Resume</h2>
+            <div class="vinyl vinyl-copy" data-slot="resume">
+              <p class="slot-copy">Empty sheet. File or link later.</p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
   </body>
 </html>
