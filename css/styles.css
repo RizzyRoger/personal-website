@@ -645,14 +645,12 @@ body {
   width: min(42%, 19rem);
 }
 
-.bed-bio .plot {
-  padding-right: min(36%, 7.5rem);
-}
-
-.bed-bio .planting {
-  right: -4%;
-  width: min(32%, 7.25rem);
-  z-index: 1;
+.bed-dogs-pic .planting {
+  top: 0.15rem;
+  right: 0.2rem;
+  bottom: auto;
+  width: min(78%, 12rem);
+  transform-origin: 90% 0%;
 }
 
 .bed-marvin .planting {
@@ -773,13 +771,10 @@ body {
     width: min(44%, 11rem);
   }
 
-  .bed-bio .plot {
-    padding-right: min(34%, 6.5rem);
-  }
-
-  .bed-bio .planting {
-    right: -2%;
-    width: min(28%, 6.5rem);
+  .bed-dogs-pic .planting {
+    top: 0.1rem;
+    right: 0.15rem;
+    width: min(42%, 9rem);
   }
 
   .bed-marvin .planting {
