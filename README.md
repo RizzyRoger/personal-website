@@ -1,6 +1,6 @@
 # Roger Wei
 
-Static personal site: About me, plus pages for Marvin and Lithium.
+Static personal site: About me, plus pages for Marvin, Lithium, and Group Four.
 
 Live: [https://iamroger.space](https://iamroger.space)
 

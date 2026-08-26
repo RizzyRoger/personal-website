@@ -1,16 +1,62 @@
+/* Eco-brutalism · Plaza Beds · seed 41a5134b
+   Every concrete surface is a photographic raster. CSS draws only what the world
+   draws: paving joints, bed lips, cast relief, hatch on unplanted soil. */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../assets/fonts/archivo-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../assets/fonts/archivo-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF,
+    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
-  --shop: #0a0a0a;
-  --void: #010101;
-  --roll: #2a2a2b;
-  --roll-lit: #6b696a;
-  --vinyl: #a0a0a2;
-  --ink: #121212;
-  --ink-soft: #2c2c2e;
-  --cut: #c41e1e;
-  --edge: #c5c7cc;
-  --film: url("../assets/vinyl.png");
-  --display: "Saira Extra Condensed", "Arial Narrow", sans-serif;
-  --body: "Saira", "Avenir Next Condensed", sans-serif;
+  /* sampled from the approved comp .impeccable/mocks/decision/beds.webp */
+  --plaza: #949387;
+  --panel: #928e84;
+  --monolith: #383735;
+  --lip: #352e23;
+  --soil: #271f14;
+  --cast: #d9d5cd;
+  --cast-dim: #b4b1a7;
+  --ink: #1c1e1b;
+  --ink-soft: #24261f;
+  --recess: #8a867e;
+  --leaf: #344b35;
+
+  --tex-plaza: url("../assets/concrete-plaza.webp");
+  --tex-panel: url("../assets/concrete-panel.webp");
+  --tex-monolith: url("../assets/concrete-monolith.webp");
+  --tex-soil: url("../assets/soil.webp");
+
+  --joint: clamp(3px, 0.45vw, 6px);
+  --lip-h: clamp(11px, 1.5vw, 18px);
+  --col: clamp(12rem, 16vw, 16rem);
+  --bar: 1.7rem;
+
+  --face: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  /* cast in relief: light off the top arris, shadow into the draft below */
+  --relief-up: -1px -1px 0 rgb(255 255 255 / 0.26), 1px 2px 2px rgb(18 16 12 / 0.5);
+  --relief-in: 0 1px 0 rgb(255 255 255 / 0.3), 0 -1px 1px rgb(18 16 12 / 0.42);
+
+  --drop: 0 12px 26px rgb(20 18 14 / 0.4), 0 2px 5px rgb(20 18 14 / 0.32);
 }
 
 *,
@@ -20,440 +66,655 @@
 }
 
 html {
-  background: var(--shop);
+  background-color: var(--plaza);
+  scrollbar-color: var(--monolith) var(--plaza);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--shop);
-  color: var(--edge);
-  font-family: var(--body);
-  font-size: 1.05rem;
-  line-height: 1.45;
-  font-optical-sizing: auto;
+  color: var(--ink);
+  caret-color: var(--leaf);
+  font-family: var(--face);
+  font-stretch: 100%;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.55;
+  background-color: var(--plaza);
+  /* paving joints are drawn; the concrete itself is the raster */
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 clamp(180px, 22vw, 268px), rgb(24 21 16 / 0.2) clamp(180px, 22vw, 268px) calc(clamp(180px, 22vw, 268px) + 2px)),
+    repeating-linear-gradient(0deg, transparent 0 clamp(180px, 22vw, 268px), rgb(24 21 16 / 0.2) clamp(180px, 22vw, 268px) calc(clamp(180px, 22vw, 268px) + 2px)),
+    var(--tex-plaza);
+  background-size: auto, auto, 560px 560px;
+  background-attachment: fixed, fixed, fixed;
 }
 
 ::selection {
-  background: var(--cut);
-  color: #fff8f6;
+  background: var(--leaf);
+  color: #eef1ec;
 }
 
+/* the ring is picked per surface: leaf green measures 1.25:1 on the monolith and
+   2.9:1 on the panel, so it cannot carry focus on either */
 :focus-visible {
-  outline: 2px solid var(--cut);
-  outline-offset: 3px;
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.key:focus-visible {
+  outline-color: var(--cast);
+  outline-offset: 1px;
 }
 
 .skip {
   position: absolute;
-  left: 0.75rem;
-  top: -3rem;
-  z-index: 20;
-  padding: 0.4rem 0.7rem;
-  background: var(--cut);
-  color: #fff;
-  font-family: var(--display);
+  left: 0.6rem;
+  top: -4rem;
+  z-index: 30;
+  padding: 0.6rem 0.9rem;
+  background-color: var(--monolith);
+  background-image: var(--tex-monolith);
+  background-size: 320px;
+  color: var(--cast);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+  box-shadow: var(--drop);
 }
 
 .skip:focus {
-  top: 0.75rem;
+  top: 0.6rem;
 }
 
-.shop {
+/* ---------- the plaza ---------- */
+
+.plaza {
+  display: grid;
+  grid-template-columns: var(--col) minmax(0, 1fr);
+  gap: var(--joint);
+  align-items: start;
   min-height: 100vh;
+  padding: var(--joint);
 }
 
-.rail {
+/* ---------- the directory monolith ---------- */
+
+.directory {
   position: sticky;
-  top: 0;
-  z-index: 8;
+  top: var(--joint);
+  overflow: hidden;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem clamp(1rem, 4vw, 2.5rem) 0.7rem;
-  background: var(--void);
-  border-bottom: 1px solid #1c1c1c;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-height: calc(100vh - var(--joint) * 2);
+  padding: 1.5rem 1.1rem;
+  color: var(--cast);
+  background-color: var(--monolith);
+  background-image: var(--tex-monolith);
+  background-size: 420px;
+  box-shadow: var(--drop), inset 0 1px 0 rgb(255 255 255 / 0.1);
 }
 
-.job-lockup {
+/* the vine trails down the empty lower wall */
+.directory::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  bottom: -3%;
+  width: 82%;
+  height: 66%;
+  background: url("../assets/plant-vine.webp") left bottom / contain no-repeat;
+  pointer-events: none;
+}
+
+.name {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(1.55rem, 2.5vw, 2.4rem);
+  line-height: 0.88;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--cast);
+  text-shadow: var(--relief-up);
+}
+
+.keys {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.key {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  min-width: 0;
-}
-
-.job {
-  margin: 0;
-  font-family: var(--display);
+  padding: 0.42rem 0;
+  color: var(--cast-dim);
+  font-stretch: 125%;
   font-weight: 700;
-  font-size: clamp(2rem, 6vw, 3.4rem);
-  line-height: 0.85;
-  letter-spacing: 0;
+  font-size: 1rem;
+  letter-spacing: 0.045em;
   text-transform: uppercase;
-  color: var(--edge);
+  text-decoration: none;
+  text-shadow: var(--relief-up);
 }
 
-.rw {
-  width: 2.4rem;
-  height: 2.4rem;
-  object-fit: contain;
+/* the cast bar is a block of concrete, not a border. its width is always
+   reserved so the lettering never shifts between pages; only the cast scales. */
+.key::before {
+  content: "";
+  flex: none;
+  width: var(--bar);
+  height: 0.62rem;
+  margin-right: 0.5rem;
+  background: var(--cast-dim);
+  box-shadow: 0 1px 2px rgb(18 16 12 / 0.55);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease-out;
 }
 
-.job-meta {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
+.key:hover,
+.key:focus-visible {
+  color: var(--cast);
+}
+
+.key:hover::before {
+  transform: scaleX(0.4);
+  background: var(--cast);
+}
+
+.key.is-on {
+  color: var(--cast);
+}
+
+.key.is-on::before {
+  transform: scaleX(1);
+  background: var(--cast);
+}
+
+.stamp {
+  position: relative;
+  z-index: 1;
+  margin: auto 0 0;
+  font-stretch: 125%;
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--roll-lit);
+  color: var(--cast-dim);
+  text-shadow: var(--relief-up);
+}
+
+/* ---------- the bed field ---------- */
+
+.beds {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--joint);
+  min-width: 0;
 }
 
 .bed {
   position: relative;
-  display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  padding: 1.25rem clamp(1rem, 4vw, 2.5rem) 4rem 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1.25rem calc(var(--lip-h) + 1.15rem);
+  background-color: var(--panel);
+  background-image: var(--tex-panel);
+  background-size: 300px;
+  /* the comp separates its panels with a hairline rule; without it, concrete on
+     concrete at the same value reads as one mushy field */
+  box-shadow: var(--drop), inset 0 0 0 1px rgb(233 231 224 / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / 0.18);
 }
 
-.cutter-head {
+/* the soil lip along the front face of every bed */
+.bed::after {
+  content: "";
   position: absolute;
-  left: 3.6rem;
+  left: 0;
   right: 0;
-  top: 0;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  pointer-events: none;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  bottom: 0;
+  height: var(--lip-h);
+  background-color: var(--lip);
+  background-image: var(--tex-soil);
+  background-size: 300px;
+  box-shadow: inset 0 3px 5px rgb(10 8 5 / 0.6);
 }
 
-.carriage {
-  width: 5.5rem;
-  height: auto;
-  margin-left: -0.6rem;
-  filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.55));
+.bed-portrait {
+  grid-area: 1 / 1 / 4 / 5;
+  min-height: min(62vh, 32rem);
 }
 
-.laser {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--cut);
-  box-shadow: 1px 2px 6px rgb(196 30 30 / 0.45);
+.bed-bio {
+  grid-area: 1 / 5 / 3 / 7;
 }
 
-.roll {
-  position: sticky;
-  top: 4.6rem;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.35rem;
-  min-height: calc(100vh - 5.5rem);
-  padding: 1.5rem 0.35rem;
-  background-color: var(--vinyl);
-  background-image: var(--film);
-  background-size: 420px;
-  border-radius: 2.4rem 0.2rem 0.2rem 2.4rem;
-  box-shadow: 10px 0 24px rgb(0 0 0 / 0.55);
+.bed-now {
+  grid-area: 3 / 5 / 4 / 7;
 }
 
-.roll-core {
-  position: absolute;
-  left: 0.35rem;
-  top: 8%;
-  bottom: 8%;
-  width: 0.45rem;
-  border-radius: 99px;
-  background: #111;
-  opacity: 0.7;
+.bed-photos {
+  grid-column: 1 / 7;
 }
 
-.roll-link {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  align-self: center;
-  color: var(--ink);
-  text-decoration: none;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: 0.06em;
+.bed-hobbies {
+  grid-column: 1 / 4;
+}
+
+.bed-years {
+  grid-column: 4 / 7;
+}
+
+.bed-contact {
+  grid-column: 1 / 4;
+}
+
+.bed-resume {
+  grid-column: 4 / 7;
+}
+
+/* project pages: one dominant lede bed, then copy and demo */
+.bed-lede {
+  grid-column: 1 / 5;
+  min-height: min(46vh, 24rem);
+}
+
+.bed-copy {
+  grid-column: 5 / 7;
+}
+
+.bed-demo {
+  grid-column: 1 / 7;
+  min-height: 14rem;
+}
+
+/* ---------- cast lettering ---------- */
+
+.cast {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 0.85rem;
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 1.18rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 0.35rem 0.15rem;
-  border-left: 2px solid transparent;
+  color: var(--ink);
+  text-shadow: var(--relief-in);
 }
 
-.roll-link:hover {
-  color: var(--cut);
+.bed-portrait > .cast,
+.bed-lede > .cast {
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
 }
 
-.roll-link.is-on {
-  color: var(--cut);
-  border-left-color: var(--cut);
-}
+/* ---------- plots: what sits inside a bed ---------- */
 
-.feed {
+.plot {
+  position: relative;
+  z-index: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
   min-width: 0;
 }
 
-.sheet {
-  position: relative;
-  padding: 0.35rem 0 0.1rem;
-}
-
-.sheet.is-under-cutter .vinyl {
-  box-shadow: 0 10px 28px rgb(0 0 0 / 0.45);
-}
-
-.mark {
-  margin: 0 0 0.4rem;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--roll-lit);
-}
-
-.sheet-hero .mark {
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  color: var(--edge);
-}
-
-.vinyl {
-  position: relative;
+.copy {
   margin: 0;
-  background-color: var(--vinyl);
-  background-image: var(--film);
-  background-size: 420px;
+  max-width: 68ch;
   color: var(--ink);
-  border: 1px solid var(--cut);
-  box-shadow: 0 8px 18px rgb(0 0 0 / 0.35);
 }
 
-.vinyl::before,
-.vinyl::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border: 1px solid var(--cut);
-  pointer-events: none;
+.copy + .copy {
+  margin-top: 0.9rem;
 }
 
-.vinyl::before {
-  top: 6px;
-  left: 6px;
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.vinyl::after {
-  right: 6px;
-  bottom: 6px;
-  border-left: 0;
-  border-top: 0;
-}
-
-.sheet-hero .vinyl {
-  min-height: min(68vh, 38rem);
-}
-
-.vinyl-portrait {
-  aspect-ratio: 1 / 1;
-  width: min(100%, 36rem);
-  min-height: 0;
-}
-
-.on-sheet {
-  position: absolute;
-  left: 1.1rem;
-  top: 1rem;
-  z-index: 1;
-  font-family: var(--display);
+.note {
+  margin: 0.75rem 0 0;
+  font-stretch: 125%;
   font-weight: 700;
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  letter-spacing: 0.02em;
+  font-size: 0.76rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* An unplanted bed is the bed's own concrete dropped one step in value and
+   crossed by the rake hatch, exactly as the comp draws an empty panel. The soil
+   in this world lives in the lip; flooding whole interiors with earth turned the
+   page brown and lost the harsh grey the direction is built on. */
+.bare {
+  position: relative;
+  flex: 1;
+  min-height: 7rem;
+  background-color: var(--recess);
+  background-image:
+    repeating-linear-gradient(-45deg, transparent 0 12px, rgb(34 30 22 / 0.24) 12px 13px),
+    var(--tex-panel);
+  background-size: auto, 300px;
+  box-shadow: inset 0 5px 13px rgb(22 19 14 / 0.42), inset 0 1px 0 rgb(22 19 14 / 0.5),
+    inset 0 -1px 0 rgb(255 255 255 / 0.12);
+}
+
+/* the note is held clear of the planting: decoration never eats the words */
+.bare > .note {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.7rem;
+  max-width: min(58%, 22rem);
+  margin: 0;
   color: var(--ink);
 }
 
-.vinyl img {
+.bed-portrait .bare {
+  min-height: 12rem;
+}
+
+.bed-portrait .bare img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  inset: 0;
 }
 
-.vinyl.is-filled .slot-note {
-  position: relative;
-  z-index: 1;
-  mix-blend-mode: difference;
-  color: #eee;
+.bare.is-filled > .note {
+  display: none;
 }
 
-.vinyl-copy {
-  padding: 1.6rem 1.7rem 1.8rem;
-}
-
-.slot-copy {
-  margin: 0;
-  max-width: 42rem;
-  color: var(--ink-soft);
-}
-
-.slot-note {
-  margin: 0.55rem 0 0;
-  padding: 0 0.2rem;
-  font-family: var(--display);
-  font-size: 0.92rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--roll-lit);
-}
-
-.vinyl-grid {
+/* rows of openings cut into a bed */
+.openings {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.65rem;
-}
-
-.vinyl-grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.vinyl-tile {
-  min-height: 7.5rem;
-  display: grid;
-  place-items: center;
-  font-family: var(--display);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
-.year-row {
-  list-style: none;
+  grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr));
+  gap: 0.55rem;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.65rem;
+  list-style: none;
 }
 
-.vinyl-year {
-  min-height: 4.5rem;
+.openings-3 {
+  --n: 3;
+}
+
+.opening {
+  position: relative;
   display: grid;
   place-items: center;
-  font-family: var(--display);
-  font-size: 1.6rem;
-  letter-spacing: 0.08em;
+  min-height: 6.5rem;
+  padding: 0.5rem 0.5rem calc(0.5rem + var(--lip-h));
+  text-align: center;
+  background-color: var(--recess);
+  background-image:
+    repeating-linear-gradient(-45deg, transparent 0 12px, rgb(34 30 22 / 0.24) 12px 13px),
+    var(--tex-panel);
+  background-size: auto, 240px;
+  box-shadow: inset 0 4px 11px rgb(22 19 14 / 0.4), inset 0 1px 0 rgb(22 19 14 / 0.48);
+  color: var(--ink);
+  font-stretch: 125%;
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-@media (max-width: 720px) {
-  .job {
-    font-size: clamp(1.5rem, 8vw, 2.2rem);
+/* every opening is its own small planter, so it carries the lip too */
+.opening::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--lip-h);
+  background-color: var(--lip);
+  background-image: var(--tex-soil);
+  background-size: 200px;
+  box-shadow: inset 0 2px 4px rgb(10 8 5 / 0.55);
+}
+
+.opening-year {
+  min-height: 4.4rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- cast plaques: the outbound jobs ---------- */
+
+.gates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gate {
+  display: inline-block;
+  padding: 0.62rem 0.95rem 0.55rem;
+  background-color: var(--monolith);
+  background-image: var(--tex-monolith);
+  background-size: 300px;
+  color: var(--cast);
+  font-stretch: 125%;
+  font-weight: 700;
+  font-size: 0.94rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: var(--relief-up);
+  box-shadow: var(--drop), inset 0 1px 0 rgb(255 255 255 / 0.13);
+}
+
+/* the engraved rule, cut into the plaque rather than underlining the text: a
+   dark groove with the light catching its lower arris. leaf green on charcoal
+   measures barely over 1:1, so the groove carries it and the fill is the reveal. */
+.gate::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 0.34rem;
+  background: rgb(12 10 7 / 0.78);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.2);
+  transition: background-color 0.25s ease-out;
+}
+
+.gate:hover,
+.gate:focus-visible {
+  color: #fff;
+}
+
+.gate:hover::after,
+.gate:focus-visible::after {
+  background: var(--cast);
+}
+
+.copy + .gates {
+  margin-top: 1.2rem;
+}
+
+/* ---------- planting ---------- */
+
+/* planting sits on top of the bed it grows out of, the way the comp lays its
+   printed greens over the panels */
+.planting {
+  position: absolute;
+  z-index: 3;
+  bottom: calc(var(--lip-h) - 2px);
+  height: auto;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+}
+
+.bed-portrait .planting {
+  right: 1.5%;
+  width: min(42%, 19rem);
+}
+
+.bed-bio .planting {
+  right: 0;
+  width: min(58%, 14rem);
+}
+
+.bed-lede .planting {
+  right: -2%;
+  width: min(38%, 16rem);
+}
+
+/* ---------- responsive: the monolith becomes a cast strip ---------- */
+
+@media (max-width: 900px) {
+  .plaza {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .job-meta {
-    font-size: 0.7rem;
-    letter-spacing: 0.04em;
+  .directory {
+    position: sticky;
+    top: 0;
+    z-index: 12;
+    align-items: flex-start;
+    gap: 0.7rem;
+    min-height: 0;
+    padding: 0.75rem 0.9rem 0.85rem;
   }
 
-  .rw {
-    width: 1.7rem;
-    height: 1.7rem;
+  .directory::after {
+    left: auto;
+    right: 0.5rem;
+    bottom: -36%;
+    width: 3.2rem;
+    height: 150%;
+    opacity: 0.5;
+  }
+
+  .name {
+    font-size: clamp(1.4rem, 6.6vw, 2rem);
+    line-height: 1;
+  }
+
+  .keys {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.9rem;
+  }
+
+  .key {
+    padding: 0.28rem 0;
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
+  }
+
+  .key::before {
+    width: 0.85rem;
+    height: 0.5rem;
+    margin-right: 0.35rem;
+  }
+
+  .stamp {
+    display: none;
+  }
+
+  .beds {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bed,
+  .bed-portrait,
+  .bed-bio,
+  .bed-now,
+  .bed-photos,
+  .bed-hobbies,
+  .bed-years,
+  .bed-contact,
+  .bed-resume,
+  .bed-lede,
+  .bed-copy,
+  .bed-demo {
+    grid-area: auto;
+    grid-column: auto;
   }
 
   .bed {
-    grid-template-columns: 2.7rem minmax(0, 1fr);
-    padding: 0.7rem 0.7rem 3rem 0;
+    padding: 1rem 1rem calc(var(--lip-h) + 1rem);
   }
 
-  .cutter-head {
-    left: 2.4rem;
-    align-items: flex-start;
+  .bed-portrait,
+  .bed-lede,
+  .bed-demo {
+    min-height: 0;
   }
 
-  .carriage {
-    width: 2.8rem;
-    margin-left: -0.35rem;
+  .bed-portrait .bare {
+    min-height: 62vw;
   }
 
-  .roll {
-    position: sticky;
-    top: 3.8rem;
-    z-index: 6;
-    flex-direction: column;
-    justify-content: center;
-    min-height: calc(100vh - 4.6rem);
-    padding: 0.8rem 0.15rem;
-    border-radius: 1.4rem 0.15rem 0.15rem 1.4rem;
-    background-color: var(--vinyl);
-    background-image: var(--film);
-    background-size: 420px;
+  .openings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .roll-core {
-    display: block;
-    left: 0.2rem;
-    width: 0.28rem;
+  .bed-portrait .planting {
+    right: 1%;
+    width: min(44%, 11rem);
   }
 
-  .roll-link {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    border-left: 2px solid transparent;
-    border-bottom: 0;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    padding: 0.2rem 0;
-    flex: 0;
-    text-align: start;
+  .bed-bio .planting {
+    right: 0;
+    width: min(44%, 9rem);
   }
 
-  .roll-link.is-on {
-    border-left-color: var(--cut);
-    border-bottom-color: transparent;
-  }
-
-  .sheet-hero .vinyl {
-    min-height: 70vw;
-  }
-
-  .vinyl-portrait {
-    width: 100%;
-  }
-
-  .vinyl-grid,
-  .vinyl-grid-3,
-  .year-row {
-    grid-template-columns: 1fr 1fr;
+  .bed-lede .planting {
+    width: min(42%, 9rem);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .cutter-head,
-  .laser {
-    transition: none;
+@media (max-width: 420px) {
+  .keys {
+    gap: 0.25rem 0.65rem;
+  }
+
+  .key {
+    font-size: 0.76rem;
+  }
+
+  .key::before {
+    width: 0.7rem;
+    margin-right: 0.3rem;
+  }
+
+  .openings {
+    gap: 0.4rem;
   }
 }
 
-@supports (scrollbar-color: auto) {
-  * {
-    scrollbar-color: var(--roll-lit) var(--void);
+/* ---------- motion: concrete does not move, plants grow ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-plant .planting {
+    transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;
+  }
+
+  .js-plant .bed:not(.is-planted) .planting {
+    opacity: 0;
+    transform: scale(0.82) translateY(14%);
   }
 }

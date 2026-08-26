@@ -6,118 +6,148 @@
     <title>Roger Wei</title>
     <meta
       name="description"
-      content="Roger Wei — about, Marvin, and Lithium."
+      content="Roger Wei — about, Marvin, Lithium, and Group Four."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@600;700&family=Saira:ital,wght@0,400;0,500;1,400&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="assets/fonts/archivo-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/main.js" defer></script>
   </head>
   <body data-page="about">
     <!--
-      THESIS: The About page is a wrap plotter feeding empty vinyl sheets; it refuses a centered cream letter and it refuses a parked car.
-      OWN-WORLD: Black shop, unprinted grey vinyl, cutter-red path, Saira Extra Condensed job lettering, roll-edge keys.
-      STORY: A visitor reads ROGER WEI on the cutter, sees an empty portrait sheet, then opens Marvin or Lithium from the roll.
-      FIRST VIEWPORT: Sticky cutter rail with ROGER WEI. Tall roll at left: About me / Marvin / Lithium. Huge empty PORTRAIT sheet. BIO and NOW already in the feed.
-      FORM: Vinyl Plot (Impeccable pick) · Feed roll composition · seed ede29f77
+      THESIS: The About page is a concrete plaza of planter beds; it refuses a centered cream letter and it refuses to apologise for the beds nothing is planted in yet.
+      OWN-WORLD: Eco-brutalism. Photographic poured concrete, board-formed monolith, raked soil, flat vector planting, Archivo cast in wide heavy caps.
+      STORY: A visitor reads ROGER WEI cast into the directory, walks past the empty PORTRAIT bed, and opens Marvin, Lithium, or Group Four from the keys.
+      FIRST VIEWPORT: Board-formed directory at left with the cast name and four keys. The dominant PORTRAIT bed on bare soil. BIO and NOW planted beside it, fern spilling over the lip.
+      FORM: Eco-brutalism · Plaza Beds composition · seed 41a5134b
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
     -->
     <a class="skip" href="#portrait">Skip to portrait</a>
 
-    <div class="shop">
-      <header class="rail">
-        <div class="job-lockup">
-          <h1 class="job">Roger Wei</h1>
-          <img class="rw" src="assets/rw-script.png" alt="" width="72" height="72" />
-        </div>
-        <p class="job-meta">Plot · unprinted</p>
-      </header>
+    <div class="plaza">
+      <header class="directory">
+        <h1 class="name">Roger Wei</h1>
 
-      <div class="bed">
-        <div class="cutter-head" aria-hidden="true">
-          <img class="carriage" src="assets/cutter-head.png" alt="" />
-          <span class="laser"></span>
-        </div>
-
-        <nav class="roll" aria-label="Primary">
-          <span class="roll-core" aria-hidden="true"></span>
-          <a class="roll-link" data-nav="about" href="./">About me</a>
-          <a class="roll-link" data-nav="marvin" href="marvin/">Marvin</a>
-          <a class="roll-link" data-nav="lithium" href="lithium/">Lithium</a>
+        <nav aria-label="Primary">
+          <ul class="keys">
+            <li><a class="key" data-nav="about" href="./">About me</a></li>
+            <li><a class="key" data-nav="marvin" href="marvin/">Marvin</a></li>
+            <li><a class="key" data-nav="lithium" href="lithium/">Lithium</a></li>
+            <li><a class="key" data-nav="group-four" href="group-four/">Group Four</a></li>
+          </ul>
         </nav>
 
-        <main class="feed">
-          <section class="sheet sheet-hero" id="portrait">
-            <figure class="vinyl vinyl-portrait" data-src="assets/portrait.jpg">
-              <span class="on-sheet">Portrait</span>
-            </figure>
-            <p class="slot-note">Empty sheet — photo loads from assets/portrait.jpg</p>
-          </section>
+        <p class="stamp">Plaza · unplanted</p>
+      </header>
 
-          <section class="sheet" id="bio">
-            <h2 class="mark">Bio</h2>
-            <div class="vinyl vinyl-copy" data-slot="bio">
-              <p class="slot-copy">Empty vinyl. A short bio goes here.</p>
+      <main class="beds">
+        <section class="bed bed-portrait" id="portrait">
+          <h2 class="cast">Portrait</h2>
+          <div class="plot">
+            <div class="bare" data-src="assets/portrait.jpg">
+              <p class="note">Bare bed — photo loads from assets/portrait.jpg</p>
             </div>
-          </section>
+          </div>
+          <img
+            class="planting"
+            src="assets/plant-monstera.webp"
+            alt=""
+            width="970"
+            height="974"
+          />
+        </section>
 
-          <section class="sheet" id="now">
-            <h2 class="mark">Now</h2>
-            <div class="vinyl vinyl-copy" data-slot="now">
-              <p class="slot-copy">Empty. What you’re on lately.</p>
+        <section class="bed bed-bio" id="bio">
+          <h2 class="cast">Bio</h2>
+          <div class="plot">
+            <div class="bare" data-slot="bio">
+              <p class="note">Bare bed — a short bio goes here</p>
             </div>
-          </section>
+          </div>
+          <img
+            class="planting"
+            src="assets/plant-fern.webp"
+            alt=""
+            width="896"
+            height="808"
+          />
+        </section>
 
-          <section class="sheet" id="photos">
-            <h2 class="mark">Photos</h2>
-            <div class="vinyl-grid" data-slot="photos">
-              <div class="vinyl vinyl-tile"></div>
-              <div class="vinyl vinyl-tile"></div>
-              <div class="vinyl vinyl-tile"></div>
-              <div class="vinyl vinyl-tile"></div>
+        <section class="bed bed-now" id="now">
+          <h2 class="cast">Now</h2>
+          <div class="plot">
+            <div class="bare" data-slot="now">
+              <p class="note">Bare bed — what you’re on lately</p>
             </div>
-            <p class="slot-note">Four empty sheets.</p>
-          </section>
+          </div>
+        </section>
 
-          <section class="sheet" id="hobbies">
-            <h2 class="mark">Hobbies</h2>
-            <div class="vinyl-grid vinyl-grid-3">
-              <div class="vinyl vinyl-tile" data-slot="hobby-1"><span>Hobby</span></div>
-              <div class="vinyl vinyl-tile" data-slot="hobby-2"><span>Hobby</span></div>
-              <div class="vinyl vinyl-tile" data-slot="hobby-3"><span>Hobby</span></div>
-            </div>
-          </section>
+        <section class="bed bed-photos" id="photos">
+          <h2 class="cast">Photos</h2>
+          <div class="plot">
+            <ul class="openings" data-slot="photos">
+              <li class="opening">Empty</li>
+              <li class="opening">Empty</li>
+              <li class="opening">Empty</li>
+              <li class="opening">Empty</li>
+            </ul>
+          </div>
+        </section>
 
-          <section class="sheet" id="years">
-            <h2 class="mark">Years</h2>
-            <ol class="year-row" data-slot="years">
-              <li class="vinyl vinyl-year"><span>—</span></li>
-              <li class="vinyl vinyl-year"><span>—</span></li>
-              <li class="vinyl vinyl-year"><span>—</span></li>
-              <li class="vinyl vinyl-year"><span>—</span></li>
+        <section class="bed bed-hobbies" id="hobbies">
+          <h2 class="cast">Hobbies</h2>
+          <div class="plot">
+            <ul class="openings openings-3">
+              <li class="opening" data-slot="hobby-1">Hobby</li>
+              <li class="opening" data-slot="hobby-2">Hobby</li>
+              <li class="opening" data-slot="hobby-3">Hobby</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="bed bed-years" id="years">
+          <h2 class="cast">Years</h2>
+          <div class="plot">
+            <ol class="openings" data-slot="years">
+              <li class="opening opening-year">—</li>
+              <li class="opening opening-year">—</li>
+              <li class="opening opening-year">—</li>
+              <li class="opening opening-year">—</li>
             </ol>
-            <p class="slot-note">Empty year windows.</p>
-          </section>
+          </div>
+        </section>
 
-          <section class="sheet" id="contact">
-            <h2 class="mark">Contact</h2>
-            <div class="vinyl vinyl-copy" data-slot="contact">
-              <p class="slot-copy">Empty. Mail, elsewhere — when you have them.</p>
-            </div>
-          </section>
+        <section class="bed bed-contact" id="contact">
+          <h2 class="cast">Contact</h2>
+          <div class="plot">
+            <ul class="gates" data-slot="contact">
+              <li><a class="gate" href="https://marvin.sarl">marvin.sarl</a></li>
+              <li>
+                <a class="gate" href="https://github.com/RizzyRoger/lithium">Lithium on GitHub</a>
+              </li>
+              <li>
+                <a class="gate" href="https://github.com/RizzyRoger/Group-4">Group Four on GitHub</a>
+              </li>
+            </ul>
+          </div>
+        </section>
 
-          <section class="sheet" id="resume">
-            <h2 class="mark">Resume</h2>
-            <div class="vinyl vinyl-copy" data-slot="resume">
-              <p class="slot-copy">Empty sheet. File or link later.</p>
+        <section class="bed bed-resume" id="resume">
+          <h2 class="cast">Resume</h2>
+          <div class="plot">
+            <div class="bare" data-slot="resume">
+              <p class="note">Bare bed — file or link later</p>
             </div>
-          </section>
-        </main>
-      </div>
+          </div>
+        </section>
+      </main>
     </div>
   </body>
 </html>

@@ -3,52 +3,61 @@
   var page = "about";
   if (/\/marvin\/?$/.test(path) || path.indexOf("/marvin/") !== -1) page = "marvin";
   else if (/\/lithium\/?$/.test(path) || path.indexOf("/lithium/") !== -1) page = "lithium";
+  else if (/\/group-four\/?$/.test(path) || path.indexOf("/group-four/") !== -1) page = "group-four";
 
   document.body.setAttribute("data-page", page);
 
-  var links = document.querySelectorAll(".roll-link[data-nav]");
-  for (var i = 0; i < links.length; i++) {
-    var on = links[i].getAttribute("data-nav") === page;
-    links[i].classList.toggle("is-on", on);
-    if (on) links[i].setAttribute("aria-current", "page");
-    else links[i].removeAttribute("aria-current");
+  var keys = document.querySelectorAll(".key[data-nav]");
+  for (var i = 0; i < keys.length; i++) {
+    var on = keys[i].getAttribute("data-nav") === page;
+    keys[i].classList.toggle("is-on", on);
+    if (on) keys[i].setAttribute("aria-current", "page");
+    else keys[i].removeAttribute("aria-current");
   }
 
-  var vinyl = document.querySelector(".vinyl[data-src]");
-  if (vinyl) {
-    var src = vinyl.getAttribute("data-src");
+  // the portrait bed takes a photo once one exists; until then it stays bare soil
+  var plot = document.querySelector(".bare[data-src]");
+  if (plot) {
     var img = new Image();
     img.alt = "Roger Wei";
     img.addEventListener("load", function () {
-      vinyl.classList.add("is-filled");
-      vinyl.insertBefore(img, vinyl.firstChild);
+      plot.classList.add("is-filled");
+      plot.insertBefore(img, plot.firstChild);
     });
-    img.src = src;
+    img.src = plot.getAttribute("data-src");
   }
 
-  var head = document.querySelector(".cutter-head");
-  var sheets = document.querySelectorAll(".sheet");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // one authored moment: concrete does not move, plants grow. The default state is
+  // fully grown, so this only arms the animation where it can actually run.
+  var beds = document.querySelectorAll(".bed");
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (still || !("IntersectionObserver" in window)) return;
 
-  function markFeed() {
-    var mid = window.innerHeight * 0.38;
-    var current = sheets[0];
-    for (var s = 0; s < sheets.length; s++) {
-      var r = sheets[s].getBoundingClientRect();
-      sheets[s].classList.remove("is-under-cutter");
-      if (r.top <= mid && r.bottom > mid) current = sheets[s];
-    }
-    if (current) current.classList.add("is-under-cutter");
-    if (head && current) {
-      var bed = document.querySelector(".bed");
-      var bedTop = bed ? bed.getBoundingClientRect().top : 0;
-      var cr = current.getBoundingClientRect();
-      var y = Math.max(12, cr.top - bedTop + 8);
-      head.style.transform = reduce ? "none" : "translateY(" + y + "px)";
-    }
+  var growing = [];
+  for (var b = 0; b < beds.length; b++) {
+    if (beds[b].querySelector(".planting")) growing.push(beds[b]);
+  }
+  if (!growing.length) return;
+
+  document.documentElement.classList.add("js-plant");
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      var order = 0;
+      for (var e = 0; e < entries.length; e++) {
+        if (!entries[e].isIntersecting) continue;
+        plant(entries[e].target, order++);
+        observer.unobserve(entries[e].target);
+      }
+    },
+    { rootMargin: "0px 0px -10% 0px", threshold: 0.18 }
+  );
+
+  function plant(bed, order) {
+    window.setTimeout(function () {
+      bed.classList.add("is-planted");
+    }, order * 120);
   }
 
-  markFeed();
-  window.addEventListener("scroll", markFeed, { passive: true });
-  window.addEventListener("resize", markFeed);
+  for (var g = 0; g < growing.length; g++) observer.observe(growing[g]);
 })();

@@ -91,7 +91,7 @@ components:
 
 **Creative North Star: "Vinyl Plot"**
 
-The site is a wrap plotter in a black shop. Unprinted grey vinyl feeds past a cutter. A visitor reads ROGER WEI on the sticky rail, sees a huge empty portrait sheet, then opens Marvin or Lithium from the roll. The world is a working bed, not a letter and not a parked car.
+The site is a wrap plotter in a black shop. Unprinted grey vinyl feeds past a cutter. A visitor reads ROGER WEI on the sticky rail, sees a huge empty portrait sheet, then opens Marvin, Lithium, or Group Four from the roll. The world is a working bed, not a letter and not a parked car.
 
 Personality is job-ticket and industrial: condensed uppercase on the machine, quieter sentences on the vinyl. Density is a vertical feed of large rectangles. The shop stays dark; the material that carries content is grey film, stroked by the cutter.
 
@@ -102,7 +102,7 @@ Confirmed refusals: a centered cream editorial page, a vehicle or wrap livery as
 - Unprinted grey vinyl (flat fill + tiled film) on both the roll and every sheet
 - Cutter-red used only as path: stroke, laser, focus, selection, lit key
 - Saira Extra Condensed job lettering; Saira for sentences
-- Three primary keys printed vertically on the roll edge
+- Four primary keys printed vertically on the roll edge
 - Square sheets with opposite-corner registration marks
 - Labeled empty slots stay empty until real content exists
 
@@ -155,7 +155,7 @@ Photo and year windows use a 4-column grid (`spacing.grid`); hobby uses 3. Both 
 The cutter head is a decorative overlay on the bed. It translates to the sheet whose midpoint crosses ~38% of the viewport; `prefers-reduced-motion: reduce` freezes it.
 
 ### Named Rules
-**The Feed-and-Roll Rule.** Primary navigation lives as vertical keys on the roll. Content is a stack of vinyl sheets to the right. Do not move the three keys into a horizontal text bar.
+**The Feed-and-Roll Rule.** Primary navigation lives as vertical keys on the roll. Content is a stack of vinyl sheets to the right. Do not move the keys into a horizontal text bar.
 
 ## Elevation & Depth
 
@@ -216,7 +216,7 @@ Extra Condensed, 0.92rem, tracking 0.12em, uppercase, Roll Lit. Sits under an un
 - **Do** keep the shop black and put all content on unprinted grey vinyl with the film tile.
 - **Do** stroke sheets in Cut at 1px and mark opposite corners with registration L’s.
 - **Do** letter the name, marks, and keys in Saira Extra Condensed uppercase.
-- **Do** keep About me / Marvin / Lithium as vertical keys on the roll; light the current key in Cut.
+- **Do** keep About me / Marvin / Lithium / Group Four as vertical keys on the roll; light the current key in Cut.
 - **Do** leave labeled empty vinyl when portrait, bio, hobbies, photos, contact, resume, or demos are missing.
 - **Do** use a 2px Cut focus ring with 3px offset.
 

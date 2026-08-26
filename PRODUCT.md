@@ -12,19 +12,19 @@ static HTML/CSS/JS. Preview with `python3 -m http.server 8080`. Hosted on GitHub
 
 ## Users
 
-People who want to know who Roger Wei is, then look at the two projects he ships: Marvin and Lithium.
+People who want to know who Roger Wei is, then look at the projects he ships: Marvin, Lithium, and Group Four.
 
 ## Product Purpose
 
-A personal site. The About page is the person. Marvin and Lithium are the work. Success is a visitor who remembers the name and can open a project page in one click.
+A personal site. The About page is the person. Marvin, Lithium, and Group Four are the work. Success is a visitor who remembers the name and can open a project page in one click.
 
 ## Positioning
 
-Three tabs only: About me on the left, Marvin and Lithium on the right. Not a blog, not a CMS, not an app.
+Four roll keys: About me, Marvin, Lithium, Group Four. Not a blog, not a CMS, not an app.
 
 ## Operating Context
 
-Static files in this repo. Live site: https://iamroger.space. Marvin also has a separate product site at https://marvin.sarl. Lithium is a macOS menu bar app, not a web product.
+Static files in this repo. Live site: https://iamroger.space. Marvin also has a separate product site at https://marvin.sarl. Lithium is a macOS menu bar app, source at https://github.com/RizzyRoger/lithium. Group Four is a Chrome tab-grouping extension, source at https://github.com/RizzyRoger/Group-4.
 
 ## Capabilities and Constraints
 
@@ -38,12 +38,12 @@ Static files in this repo. Live site: https://iamroger.space. Marvin also has a 
 
 - Name: Roger Wei
 - Domain: iamroger.space
-- Project names: Marvin (local voice AI agent), Lithium (macOS site time-limiter)
+- Project names: Marvin (local voice AI agent), Lithium (macOS site time-limiter), Group Four (Chrome tab manager)
 - Incumbent visual world (already shipped, do not treat as undecided): cream paper `#F6F1E8`, stone `#EFE8DC`, ink `#2C241C`, terracotta `#B85C38`; Fraunces headlines and Source Sans 3 body. Warm-minimal, not dark-tech.
 
 ## Evidence on Hand
 
-- Site markup: `index.html`, `marvin/index.html`, `lithium/index.html`, `css/styles.css`
+- Site markup: `index.html`, `marvin/index.html`, `lithium/index.html`, `group-four/index.html`, `css/styles.css`
 - No portrait file yet
 - No recorded demo clips yet
 - Do not invent testimonials, metrics, or download numbers
