@@ -645,9 +645,14 @@ body {
   width: min(42%, 19rem);
 }
 
+.bed-bio .plot {
+  padding-right: min(36%, 7.5rem);
+}
+
 .bed-bio .planting {
-  right: 0;
-  width: min(58%, 14rem);
+  right: -4%;
+  width: min(32%, 7.25rem);
+  z-index: 1;
 }
 
 .bed-marvin .planting {
@@ -768,9 +773,13 @@ body {
     width: min(44%, 11rem);
   }
 
+  .bed-bio .plot {
+    padding-right: min(34%, 6.5rem);
+  }
+
   .bed-bio .planting {
-    right: 0;
-    width: min(44%, 9rem);
+    right: -2%;
+    width: min(28%, 6.5rem);
   }
 
   .bed-marvin .planting {
