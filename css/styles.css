@@ -671,6 +671,15 @@ body {
   width: min(38%, 16rem);
 }
 
+.bed-album .planting,
+.bed-civic .planting {
+  top: 0.2rem;
+  right: 0.15rem;
+  bottom: auto;
+  width: min(48%, 12rem);
+  transform-origin: 90% 0%;
+}
+
 /* ---------- responsive: the monolith becomes a cast strip ---------- */
 
 @media (max-width: 900px) {
@@ -799,6 +808,13 @@ body {
 
   .bed-marvin .planting {
     width: min(42%, 9rem);
+  }
+
+  .bed-album .planting,
+  .bed-civic .planting {
+    top: 0.15rem;
+    right: 0.1rem;
+    width: min(38%, 9rem);
   }
 }
 
