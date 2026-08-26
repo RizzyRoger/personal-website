@@ -1,6 +1,6 @@
 # Roger Wei
 
-Static personal site: About me, plus pages for Marvin, Lithium, and Group Four.
+Static personal site: one scrolling plaza with skip keys for About, Marvin, Lithium, Group Four, and the rest of the field.
 
 Live: [https://iamroger.space](https://iamroger.space)
 
@@ -30,10 +30,9 @@ Reload Cursor once so `/impeccable` is picked up.
 
 ## Content to fill in later
 
-- Portrait: drop a square-ish photo at `assets/portrait.jpg`
-- Bio paragraph on `index.html`
-- Hobby titles and one-line notes on the three cards
-- Fuller Marvin / Lithium write-ups on their subpages
+- Portrait: drop a photo at `assets/portrait.jpg`
+- Replace lorem ipsum in `index.html`
+- Later photos: `assets/dogs.jpg`, `assets/e30.jpg`, `assets/album.jpg`, `assets/civic.jpg`, `assets/book-1.jpg` … `book-5.jpg`
 
 ## Host on GitHub Pages + Namecheap
 

@@ -20,14 +20,13 @@
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/main.js" defer></script>
   </head>
-  <body data-page="about">
+  <body>
     <!--
-      THESIS: The About page is a concrete plaza of planter beds; it refuses a centered cream letter and it refuses to apologise for the beds nothing is planted in yet.
+      THESIS: The site is one concrete plaza of planter beds; skip keys on the monolith jump to a bed, they do not leave the plaza.
       OWN-WORLD: Eco-brutalism. Photographic poured concrete, board-formed monolith, raked soil, flat vector planting, Archivo cast in wide heavy caps.
-      STORY: A visitor reads ROGER WEI cast into the directory, walks past the empty PORTRAIT bed, and opens Marvin, Lithium, or Group Four from the keys.
-      FIRST VIEWPORT: Board-formed directory at left with the cast name and four keys. The dominant PORTRAIT bed on bare soil. BIO and NOW planted beside it, fern spilling over the lip.
-      FORM: Eco-brutalism · Plaza Beds composition · seed 41a5134b
-      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+      STORY: A visitor reads ROGER WEI cast into the directory, walks the beds from portrait through the work and the rest of the field.
+      FIRST VIEWPORT: Directory at left. Dominant PORTRAIT bed. BIO and NOW stacked beside it. Marvin already in the feed below.
+      FORM: Eco-brutalism · Plaza Beds composition · seed 41a5134b · one-page orientation
     -->
     <a class="skip" href="#portrait">Skip to portrait</a>
 
@@ -35,23 +34,29 @@
       <header class="directory">
         <h1 class="name">Roger Wei</h1>
 
-        <nav aria-label="Primary">
+        <nav aria-label="Skip to section">
           <ul class="keys">
-            <li><a class="key" data-nav="about" href="./">About me</a></li>
-            <li><a class="key" data-nav="marvin" href="marvin/">Marvin</a></li>
-            <li><a class="key" data-nav="lithium" href="lithium/">Lithium</a></li>
-            <li><a class="key" data-nav="group-four" href="group-four/">Group Four</a></li>
+            <li><a class="key" data-nav="portrait" href="#portrait">About</a></li>
+            <li><a class="key" data-nav="marvin" href="#marvin">Marvin</a></li>
+            <li><a class="key" data-nav="lithium" href="#lithium">Lithium</a></li>
+            <li><a class="key" data-nav="group-four" href="#group-four">Group Four</a></li>
+            <li><a class="key" data-nav="future" href="#future">Future</a></li>
+            <li><a class="key" data-nav="dogs" href="#dogs">Dogs</a></li>
+            <li><a class="key" data-nav="e30" href="#e30">Dream car</a></li>
+            <li><a class="key" data-nav="quote" href="#quote">Quote</a></li>
+            <li><a class="key" data-nav="books" href="#books">Books</a></li>
+            <li><a class="key" data-nav="civic" href="#civic">Civic</a></li>
           </ul>
         </nav>
 
-        <p class="stamp">Plaza · unplanted</p>
+        <p class="stamp">Plaza · one field</p>
       </header>
 
       <main class="beds">
         <section class="bed bed-portrait" id="portrait">
-          <h2 class="cast">Portrait</h2>
+          <h2 class="cast">Photo</h2>
           <div class="plot">
-            <div class="bare" data-src="assets/portrait.jpg">
+            <div class="bare" data-src="assets/portrait.jpg" data-alt="Roger Wei">
               <p class="note">Bare bed — photo loads from assets/portrait.jpg</p>
             </div>
           </div>
@@ -67,9 +72,17 @@
         <section class="bed bed-bio" id="bio">
           <h2 class="cast">Bio</h2>
           <div class="plot">
-            <div class="bare" data-slot="bio">
-              <p class="note">Bare bed — a short bio goes here</p>
-            </div>
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              posuere, nisl at tincidunt feugiat, sapien sapien tincidunt nisi,
+              vitae tincidunt nisl sapien at sapien. Sed non risus vitae sapien
+              tincidunt tincidunt.
+            </p>
+            <p class="copy">
+              Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+              vitae, ultricies eget, tempor sit amet, ante.
+            </p>
           </div>
           <img
             class="planting"
@@ -81,53 +94,14 @@
         </section>
 
         <section class="bed bed-now" id="now">
-          <h2 class="cast">Now</h2>
+          <h2 class="cast">Right now / contact</h2>
           <div class="plot">
-            <div class="bare" data-slot="now">
-              <p class="note">Bare bed — what you’re on lately</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="bed bed-photos" id="photos">
-          <h2 class="cast">Photos</h2>
-          <div class="plot">
-            <ul class="openings" data-slot="photos">
-              <li class="opening">Empty</li>
-              <li class="opening">Empty</li>
-              <li class="opening">Empty</li>
-              <li class="opening">Empty</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="bed bed-hobbies" id="hobbies">
-          <h2 class="cast">Hobbies</h2>
-          <div class="plot">
-            <ul class="openings openings-3">
-              <li class="opening" data-slot="hobby-1">Hobby</li>
-              <li class="opening" data-slot="hobby-2">Hobby</li>
-              <li class="opening" data-slot="hobby-3">Hobby</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="bed bed-years" id="years">
-          <h2 class="cast">Years</h2>
-          <div class="plot">
-            <ol class="openings" data-slot="years">
-              <li class="opening opening-year">—</li>
-              <li class="opening opening-year">—</li>
-              <li class="opening opening-year">—</li>
-              <li class="opening opening-year">—</li>
-            </ol>
-          </div>
-        </section>
-
-        <section class="bed bed-contact" id="contact">
-          <h2 class="cast">Contact</h2>
-          <div class="plot">
-            <ul class="gates" data-slot="contact">
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              euismod, nisl sit amet tincidunt tincidunt, nisl nisl tincidunt
+              nisl, sit amet tincidunt nisl nisl sit amet nisl.
+            </p>
+            <ul class="gates">
               <li><a class="gate" href="https://marvin.sarl">marvin.sarl</a></li>
               <li>
                 <a class="gate" href="https://github.com/RizzyRoger/lithium">Lithium on GitHub</a>
@@ -139,12 +113,238 @@
           </div>
         </section>
 
-        <section class="bed bed-resume" id="resume">
-          <h2 class="cast">Resume</h2>
+        <section class="bed bed-marvin" id="marvin">
+          <h2 class="cast">Marvin</h2>
           <div class="plot">
-            <div class="bare" data-slot="resume">
-              <p class="note">Bare bed — file or link later</p>
+            <p class="copy">
+              A personal voice AI agent that runs entirely on your machine.
+              Speak or type, and Marvin answers locally — transcription,
+              reasoning, and speech stay with you unless you choose otherwise.
+            </p>
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+              sit amet magna vitae nisl tincidunt tincidunt. Fusce dapibus,
+              tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+              fermentum massa justo sit amet risus.
+            </p>
+            <ul class="gates">
+              <li><a class="gate" href="https://marvin.sarl">marvin.sarl</a></li>
+            </ul>
+          </div>
+          <img
+            class="planting"
+            src="assets/plant-agave.webp"
+            alt=""
+            width="1006"
+            height="1004"
+          />
+        </section>
+
+        <section class="bed bed-lithium" id="lithium">
+          <h2 class="cast">Lithium</h2>
+          <div class="plot">
+            <p class="copy">
+              A macOS menu bar app that puts a daily time limit on any website,
+              or bans it for the day outright. Limits apply across every
+              browser — not as an extension you can simply switch off.
+            </p>
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+              mattis consectetur purus sit amet fermentum. Aenean lacinia
+              bibendum nulla sed consectetur.
+            </p>
+            <ul class="gates">
+              <li>
+                <a class="gate" href="https://github.com/RizzyRoger/lithium">GitHub</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="bed bed-group" id="group-four">
+          <h2 class="cast">Group Four</h2>
+          <div class="plot">
+            <p class="copy">
+              A Chrome extension that groups tabs in the current window in one
+              click.
+            </p>
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              posuere erat a ante venenatis dapibus posuere velit aliquet.
+              Donec sed odio dui.
+            </p>
+            <ul class="gates">
+              <li>
+                <a class="gate" href="https://github.com/RizzyRoger/Group-4">GitHub</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="bed bed-spotify" id="spotify">
+          <h2 class="cast">Spotify playing now</h2>
+          <div class="plot">
+            <p class="copy">
+              Lorem ipsum dolor sit amet — consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt. Embed later.
+            </p>
+          </div>
+        </section>
+
+        <section class="bed bed-future" id="future">
+          <h2 class="cast">Future plan</h2>
+          <div class="plot">
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.
+              Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+            </p>
+            <p class="copy">
+              Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris
+              massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti
+              sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos.
+            </p>
+          </div>
+        </section>
+
+        <section class="bed bed-dogs-pic" id="dogs">
+          <h2 class="cast">Dogs</h2>
+          <div class="plot">
+            <div class="bare" data-src="assets/dogs.jpg" data-alt="Dogs">
+              <p class="note">Bare bed — photo loads from assets/dogs.jpg</p>
             </div>
+          </div>
+        </section>
+
+        <section class="bed bed-dogs-copy" id="dogs-copy">
+          <h2 class="cast">Dogs</h2>
+          <div class="plot">
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+              commodo suscipit quam. Curabitur ullamcorper ultricies nisi. Nam
+              eget dui. Etiam rhoncus.
+            </p>
+            <p class="copy">
+              Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
+              libero, sit amet adipiscing sem neque sed ipsum.
+            </p>
+          </div>
+        </section>
+
+        <section class="bed bed-e30" id="e30">
+          <h2 class="cast">Dream car BMW E30</h2>
+          <div class="plot">
+            <div class="bare" data-src="assets/e30.jpg" data-alt="BMW E30">
+              <p class="note">Bare bed — photo loads from assets/e30.jpg</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="bed bed-mods" id="mods">
+          <h2 class="cast">Why, also mods</h2>
+          <div class="plot">
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes.
+            </p>
+            <p class="copy">
+              Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+              sem. Nulla consequat massa quis enim.
+            </p>
+          </div>
+        </section>
+
+        <section class="bed bed-quote" id="quote">
+          <h2 class="cast">Quote</h2>
+          <div class="plot">
+            <blockquote class="quote">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="bed bed-books" id="books">
+          <h2 class="cast">Fav books</h2>
+          <div class="plot">
+            <ul class="shelf">
+              <li class="book">
+                <div class="bare" data-src="assets/book-1.jpg" data-alt="">
+                  <p class="note">Book 1</p>
+                </div>
+                <p class="copy">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </li>
+              <li class="book">
+                <div class="bare" data-src="assets/book-2.jpg" data-alt="">
+                  <p class="note">Book 2</p>
+                </div>
+                <p class="copy">
+                  Pellentesque habitant morbi tristique senectus et netus.
+                </p>
+              </li>
+              <li class="book">
+                <div class="bare" data-src="assets/book-3.jpg" data-alt="">
+                  <p class="note">Book 3</p>
+                </div>
+                <p class="copy">
+                  Vestibulum tortor quam, feugiat vitae, ultricies eget.
+                </p>
+              </li>
+              <li class="book">
+                <div class="bare" data-src="assets/book-4.jpg" data-alt="">
+                  <p class="note">Book 4</p>
+                </div>
+                <p class="copy">
+                  Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                </p>
+              </li>
+              <li class="book">
+                <div class="bare" data-src="assets/book-5.jpg" data-alt="">
+                  <p class="note">Book 5</p>
+                </div>
+                <p class="copy">
+                  Quisque sit amet est et sapien ullamcorper pharetra.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="bed bed-album" id="album">
+          <h2 class="cast">Album / record player</h2>
+          <div class="plot">
+            <div class="bare" data-src="assets/album.jpg" data-alt="Favorite album and record player">
+              <p class="note">Bare bed — photo loads from assets/album.jpg</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="bed bed-civic" id="civic">
+          <h2 class="cast">Honda Civic build</h2>
+          <div class="plot">
+            <div class="bare" data-src="assets/civic.jpg" data-alt="Honda Civic build">
+              <p class="note">Bare bed — photo loads from assets/civic.jpg</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="bed bed-civic-plan" id="civic-plan">
+          <h2 class="cast">Civic rundown</h2>
+          <div class="plot">
+            <p class="copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
+              vulputate eleifend tellus.
+            </p>
+            <p class="copy">
+              Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
+              enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+              tellus.
+            </p>
           </div>
         </section>
       </main>

@@ -16,11 +16,11 @@ People who want to know who Roger Wei is, then look at the projects he ships: Ma
 
 ## Product Purpose
 
-A personal site. The About page is the person. Marvin, Lithium, and Group Four are the work. Success is a visitor who remembers the name and can open a project page in one click.
+A personal site on one scrolling plaza. The person is first, then the work, then the rest of the field. Success is a visitor who remembers the name and can skip to a project or a later bed in one click.
 
 ## Positioning
 
-Four roll keys: About me, Marvin, Lithium, Group Four. Not a blog, not a CMS, not an app.
+One page. A sticky directory of skip keys: About, Marvin, Lithium, Group Four, Future, Dogs, Dream car, Quote, Books, Civic. Not a blog, not a CMS, not an app. `/marvin`, `/lithium`, and `/group-four` redirect to the matching hash.
 
 ## Operating Context
 
@@ -28,9 +28,9 @@ Static files in this repo. Live site: https://iamroger.space. Marvin also has a 
 
 ## Capabilities and Constraints
 
-- About page: name, portrait slot (`assets/portrait.jpg`), bio, three hobby cards.
-- Project pages: title, one-paragraph teaser, room for later copy and a demo.
-- Portrait, bio, hobby names, and fuller project write-ups are still empty on purpose.
+- One scrolling About field: name, portrait slot (`assets/portrait.jpg`), bio, now/contact, Marvin, Lithium, Group Four, Spotify, future plan, dogs, dream car, quote, books, album, Civic.
+- Image beds stay empty until a file is dropped at the `data-src` path on that bed.
+- Body copy that is not a real project teaser is lorem ipsum, meant to be replaced.
 - No backend, no contact form, no analytics in this pass.
 - A live in-browser Marvin demo is out of scope for this static host.
 
@@ -39,21 +39,21 @@ Static files in this repo. Live site: https://iamroger.space. Marvin also has a 
 - Name: Roger Wei
 - Domain: iamroger.space
 - Project names: Marvin (local voice AI agent), Lithium (macOS site time-limiter), Group Four (Chrome tab manager)
-- Incumbent visual world (already shipped, do not treat as undecided): cream paper `#F6F1E8`, stone `#EFE8DC`, ink `#2C241C`, terracotta `#B85C38`; Fraunces headlines and Source Sans 3 body. Warm-minimal, not dark-tech.
+- Incumbent visual world: Eco-brutalism / Plaza Beds. Photographic concrete textures, harsh greys, Archivo wide-heavy cast lettering, flat vector plants, soil lips on every bed.
 
 ## Evidence on Hand
 
-- Site markup: `index.html`, `marvin/index.html`, `lithium/index.html`, `group-four/index.html`, `css/styles.css`
-- No portrait file yet
+- Site markup: `index.html`, redirect pages at `marvin/index.html`, `lithium/index.html`, `group-four/index.html`, `css/styles.css`
+- No portrait file yet; later photos (`dogs.jpg`, `e30.jpg`, `album.jpg`, `civic.jpg`, `book-1.jpg` … `book-5.jpg`) are the same drop-in pattern
 - No recorded demo clips yet
 - Do not invent testimonials, metrics, or download numbers
 
 ## Product Principles
 
-- Person first, then projects.
-- Leave labeled empty slots rather than fake content.
+- Person first, then projects, then the rest of the field.
+- Leave labeled empty slots rather than fake photographs.
 - Keep the site static and hostable from the repo root.
-- Match the shipped warm-minimal world unless a redesign is explicitly requested.
+- Match the shipped Plaza Beds world unless a redesign is explicitly requested.
 
 ## Accessibility & Inclusion
 
