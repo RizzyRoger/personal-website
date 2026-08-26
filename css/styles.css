@@ -677,11 +677,8 @@ body {
 
 .bed-album .planting,
 .bed-civic .planting {
-  top: 0.2rem;
-  right: 0.15rem;
-  bottom: auto;
-  width: min(48%, 12rem);
-  transform-origin: 90% 0%;
+  right: 0.4rem;
+  width: min(42%, 11rem);
 }
 
 /* ---------- responsive: the monolith becomes a cast strip ---------- */
@@ -816,9 +813,8 @@ body {
 
   .bed-album .planting,
   .bed-civic .planting {
-    top: 0.15rem;
-    right: 0.1rem;
-    width: min(38%, 9rem);
+    right: 0.25rem;
+    width: min(36%, 8.5rem);
   }
 }
 
