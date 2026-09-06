@@ -16,11 +16,11 @@ People who want to know who Roger Wei is, then look at the projects he ships: Ma
 
 ## Product Purpose
 
-A personal site as one HyperCard stack. The person is first, then the work, then the rest of the field. Success is a visitor who remembers the name and can flip to a project or a later card in one click.
+A personal site as one HyperCard field. The person is first, then the work, then the rest of the field. Success is a visitor who remembers the name and can skip to a project or a later window in one click.
 
 ## Positioning
 
-One stack. A left directory of skip keys: About, Marvin, Lithium, Group Four, Future, Dogs, Dream car, Quote, Books, Civic. Not a blog, not a CMS, not an app. `/marvin`, `/lithium`, and `/group-four` redirect to the matching hash.
+One scrolling field. A sticky directory of skip keys: About, Marvin, Lithium, Group Four, Future, Dogs, Dream car, Quote, Books, Civic. Not a blog, not a CMS, not an app. `/marvin`, `/lithium`, and `/group-four` redirect to the matching hash.
 
 ## Operating Context
 
@@ -28,7 +28,7 @@ Static files in this repo. Live site: https://iamroger.space. Marvin also has a 
 
 ## Capabilities and Constraints
 
-- One stack of cards: Welcome (1-bit portrait plate, bio, contact, painted project buttons), Marvin, Lithium, Group Four, future plan, dogs, dream car, quote, books plus album slot, Civic.
+- One scrolling field of HyperCard windows: Photo (1-bit plate), Bio, Contact with painted project buttons, Marvin, Lithium, Group Four, Spotify, future plan, dogs, dream car, quote, books, album, Civic.
 - Image beds stay empty until a file is dropped at the `data-src` path on that bed.
 - Body copy that is not a real project teaser is lorem ipsum, meant to be replaced.
 - No backend, no contact form, no analytics in this pass.

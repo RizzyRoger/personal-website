@@ -15,14 +15,14 @@
   </head>
   <body>
     <!--
-      THESIS: The site is a HyperCard stack; skip-keys flip cards in one shoebox, they do not leave the stack.
+      THESIS: The site is one HyperCard field; skip-keys jump to a window, they do not leave the desk.
       OWN-WORLD: One-bit black on white, painted invert buttons, Chicago-like pixel chrome, Geneva-like body, fixed card rectangles.
-      STORY: A visitor reads Roger Wei in the menu bar, opens the Welcome card, then paints a button to Marvin, Lithium, or Group Four.
-      FIRST VIEWPORT: Menu bar. STACK CONTENTS on the left. Welcome card with a stippled GT-R plate, bio, and painted project buttons.
-      FORM: HyperCard Stack · seed f1b3ddc6 · challenger-hypercard
+      STORY: A visitor reads Roger Wei in the menu bar, walks Photo / Bio / Contact, then paints a button to Marvin, Lithium, or Group Four.
+      FIRST VIEWPORT: Menu bar. STACK CONTENTS on the left. Dominant Photo window. Bio and Contact stacked beside it.
+      FORM: HyperCard Stack · seed f1b3ddc6 · challenger-hypercard · plaza grouping
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
     -->
-    <a class="skip" href="#stage">Skip to current card</a>
+    <a class="skip" href="#portrait">Skip to photo</a>
 
     <div class="desk">
       <header class="menubar">
@@ -35,33 +35,31 @@
         </nav>
       </header>
 
-      <div class="window">
-        <div class="titlebar">
-          <span class="close" aria-hidden="true"></span>
-          <p class="wintitle">Roger Wei</p>
-        </div>
+      <div class="field">
+        <nav class="contents" aria-label="Stack contents">
+          <p class="contents-head">Stack Contents</p>
+          <ol class="keys">
+            <li><a class="key" data-nav="portrait" href="#portrait">About</a></li>
+            <li><a class="key" data-nav="marvin" href="#marvin">Marvin</a></li>
+            <li><a class="key" data-nav="lithium" href="#lithium">Lithium</a></li>
+            <li><a class="key" data-nav="group-four" href="#group-four">Group Four</a></li>
+            <li><a class="key" data-nav="future" href="#future">Future</a></li>
+            <li><a class="key" data-nav="dogs" href="#dogs">Dogs</a></li>
+            <li><a class="key" data-nav="e30" href="#e30">Dream car</a></li>
+            <li><a class="key" data-nav="quote" href="#quote">Quote</a></li>
+            <li><a class="key" data-nav="books" href="#books">Books</a></li>
+            <li><a class="key" data-nav="civic" href="#civic">Civic</a></li>
+          </ol>
+          <p class="stamp">Stack · one field</p>
+        </nav>
 
-        <div class="work">
-          <nav class="contents" aria-label="Stack contents">
-            <p class="contents-head">Stack Contents</p>
-            <ol class="keys">
-              <li><a class="key" data-nav="portrait" href="#portrait">About</a></li>
-              <li><a class="key" data-nav="marvin" href="#marvin">Marvin</a></li>
-              <li><a class="key" data-nav="lithium" href="#lithium">Lithium</a></li>
-              <li><a class="key" data-nav="group-four" href="#group-four">Group Four</a></li>
-              <li><a class="key" data-nav="future" href="#future">Future</a></li>
-              <li><a class="key" data-nav="dogs" href="#dogs">Dogs</a></li>
-              <li><a class="key" data-nav="e30" href="#e30">Dream car</a></li>
-              <li><a class="key" data-nav="quote" href="#quote">Quote</a></li>
-              <li><a class="key" data-nav="books" href="#books">Books</a></li>
-              <li><a class="key" data-nav="civic" href="#civic">Civic</a></li>
-            </ol>
-            <p class="count"><span id="card-num">1</span> of 10</p>
-          </nav>
-
-          <main class="stage" id="stage">
-            <article class="card welcome is-on" id="portrait" data-title="About">
-              <h2 class="card-title">Welcome</h2>
+        <main class="beds">
+          <article class="bed bed-portrait" id="portrait">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Photo</h2>
+            </div>
+            <div class="plot">
               <div class="plate">
                 <img
                   class="bit"
@@ -71,6 +69,15 @@
                   height="540"
                 />
               </div>
+            </div>
+          </article>
+
+          <article class="bed bed-bio" id="bio">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Bio</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 Hi! I'm Roger, a 9th grade studying in California. I love developing my
                 own apps, and tools, reading vaugely philosophical texts, and going
@@ -83,6 +90,15 @@
                 cross-pop. I also tutor kids for free online, as well as being part of the school debate
                 team.
               </p>
+            </div>
+          </article>
+
+          <article class="bed bed-now" id="now">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Contact</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 Right now I'm working on some personal projects, and locking in on 2 AP courses.
               </p>
@@ -100,10 +116,15 @@
                   <a class="gate" href="https://discord.com/users/1413610258726780951">Me on Discord</a>
                 </li>
               </ul>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="marvin" data-title="Marvin" hidden>
-              <h2 class="card-title">Marvin</h2>
+          <article class="bed bed-marvin" id="marvin">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Marvin</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 Inspired by the paranoid android from the Hitchhikers Guide to the Galaxy, Marvin
                 is a personal assistant that automates what should be automated. Not what can be
@@ -117,12 +138,16 @@
               </p>
               <ul class="paints">
                 <li><a class="paint is-fill" href="https://marvin.sarl">marvin.sarl</a></li>
-                <li><a class="paint" href="#portrait">Back</a></li>
               </ul>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="lithium" data-title="Lithium" hidden>
-              <h2 class="card-title">Lithium</h2>
+          <article class="bed bed-lithium" id="lithium">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Lithium</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 A personal tool I think might be able to benefit more people.
                 Lithium helps with time management by putting limits on websites, that you can adjust.
@@ -137,12 +162,16 @@
                 <li>
                   <a class="paint is-fill" href="https://github.com/RizzyRoger/lithium">GitHub</a>
                 </li>
-                <li><a class="paint" href="#portrait">Back</a></li>
               </ul>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="group-four" data-title="Group Four" hidden>
-              <h2 class="card-title">Group Four</h2>
+          <article class="bed bed-group" id="group-four">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Group Four</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 Group 4 uses Grok to group tabs based on context, not the type of tab. Everyone
                 has a huge ammount of not sorted tabs on their browser. Group 4 groups them to optimise tabs.
@@ -156,12 +185,29 @@
                 <li>
                   <a class="paint is-fill" href="https://github.com/RizzyRoger/Group-4">GitHub</a>
                 </li>
-                <li><a class="paint" href="#portrait">Back</a></li>
               </ul>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="future" data-title="Future" hidden>
-              <h2 class="card-title">Future plan</h2>
+          <article class="bed bed-spotify" id="spotify">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Spotify playing now</h2>
+            </div>
+            <div class="plot">
+              <p class="copy">
+                Lorem ipsum dolor sit amet — consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt. Embed later.
+              </p>
+            </div>
+          </article>
+
+          <article class="bed bed-future" id="future">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Future plan</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 I hope to get into a career in research in cognitive science
                 I feel that there is a lot of untapped potentual in creating
@@ -172,13 +218,27 @@
                 psychology, the key subjects in the field of the problem of
                 consiousness.
               </p>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="dogs" data-title="Dogs" hidden>
-              <h2 class="card-title">Dogs</h2>
+          <article class="bed bed-dogs-pic" id="dogs">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Dogs</h2>
+            </div>
+            <div class="plot">
               <div class="bare" data-src="assets/dogs.jpg" data-alt="Dogs">
                 <p class="note">Photo loads from assets/dogs.jpg</p>
               </div>
+            </div>
+          </article>
+
+          <article class="bed bed-dogs-copy" id="dogs-copy">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Dogs</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 I have 2 adopted dogs that me and my family both fostered
                 from shelters before deciding to adopt them. Fiona, the
@@ -188,21 +248,33 @@
                 Walter, the smaller, darker one is around 3-4 years old
                 as of now.
               </p>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="e30" data-title="Dream car" hidden>
-              <h2 class="card-title">Dream car BMW E30</h2>
+          <article class="bed bed-e30" id="e30">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Dream car BMW E30</h2>
+            </div>
+            <div class="plot">
               <div class="bare" data-src="assets/e30.jpg" data-alt="BMW E30">
                 <p class="note">Photo loads from assets/e30.jpg</p>
               </div>
+            </div>
+          </article>
+
+          <article class="bed bed-mods" id="mods">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Ideal Setup</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 There's just something iconic about the e30. The engines for
                 this call are just all so economicable, and low mainanence. Plus
                 the drivetrain and the body are all just so clean.
               </p>
-              <p class="copy">
-                This car is undoubtedly my dream car. I'd:
-              </p>
+              <p class="copy">This car is undoubtedly my dream car. I'd:</p>
               <ul class="ticks">
                 <li>Put in a panem body kit, maybe widebody</li>
                 <li>Put fresh coilers + camber plates</li>
@@ -210,15 +282,25 @@
                 <li>Definitely wrap</li>
                 <li>Get Azev type A</li>
               </ul>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="quote" data-title="Quote" hidden>
-              <h2 class="card-title">Quote</h2>
-              <blockquote class="quote">“quote here”</blockquote>
-            </article>
+          <article class="bed bed-quote" id="quote">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Quote</h2>
+            </div>
+            <div class="plot">
+              <blockquote class="quote">"quote here"</blockquote>
+            </div>
+          </article>
 
-            <article class="card" id="books" data-title="Books" hidden>
-              <h2 class="card-title">Fav books</h2>
+          <article class="bed bed-books" id="books">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Fav books</h2>
+            </div>
+            <div class="plot">
               <ul class="shelf">
                 <li class="book">
                   <div class="bare" data-src="assets/book-1.webp" data-alt="The Society of Mind by Marvin Minsky">
@@ -251,20 +333,39 @@
                   <p class="copy">The Hitchhiker’s Guide to the Galaxy — Douglas Adams</p>
                 </li>
               </ul>
-              <p class="copy">
-                Lorem ipsum dolor sit amet — consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt. Embed later.
-              </p>
-              <div class="bare" data-src="assets/album.jpg" data-alt="Favorite album and record player">
-                <p class="note">Album photo loads from assets/album.jpg</p>
-              </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="card" id="civic" data-title="Civic" hidden>
-              <h2 class="card-title">Honda Civic build</h2>
+          <article class="bed bed-album" id="album">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Album / record player</h2>
+            </div>
+            <div class="plot">
+              <div class="bare" data-src="assets/album.jpg" data-alt="Favorite album and record player">
+                <p class="note">Photo loads from assets/album.jpg</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bed bed-civic" id="civic">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Honda Civic build</h2>
+            </div>
+            <div class="plot">
               <div class="bare" data-src="assets/civic.jpg" data-alt="Honda Civic build">
                 <p class="note">Photo loads from assets/civic.jpg</p>
               </div>
+            </div>
+          </article>
+
+          <article class="bed bed-civic-plan" id="civic-plan">
+            <div class="titlebar">
+              <span class="close" aria-hidden="true"></span>
+              <h2 class="wintitle">Civic rundown</h2>
+            </div>
+            <div class="plot">
               <p class="copy">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
                 tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
@@ -275,15 +376,9 @@
                 enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
                 tellus.
               </p>
-            </article>
-          </main>
-        </div>
-
-        <footer class="pager">
-          <button type="button" class="step" id="prev" aria-label="Previous card">Prev</button>
-          <p class="status"><span id="card-name">About</span></p>
-          <button type="button" class="step" id="next" aria-label="Next card">Next</button>
-        </footer>
+            </div>
+          </article>
+        </main>
       </div>
     </div>
   </body>

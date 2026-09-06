@@ -3,7 +3,7 @@
 Mode: Experience. Audience: someone meeting Roger Wei, then opening Marvin, Lithium, or Group Four.
 Job: remember the name; one click to a project.
 Direction: HyperCard Stack (approved `.impeccable/mocks/decision/challenger-hypercard.webp`, seed `f1b3ddc6`). Plaza Beds is git-only on branch `plaza-beds` / tag `plaza-beds-backup`.
-Memorable moment: a Macintosh stack window; STACK CONTENTS on the left; one card at a time; painted invert buttons to Marvin, Lithium, and Group Four.
+Memorable moment: a Macintosh desk; STACK CONTENTS sticky on the left; Photo / Bio / Contact in the first viewport; painted invert buttons to Marvin, Lithium, and Group Four.
 
 Unresolved: real portrait, bio, hobbies, photos, contact, resume copy — labeled empty slots. An unplanted bed is the honest empty state; do not fill it with invented biography.
 

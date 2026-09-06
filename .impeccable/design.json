@@ -15,17 +15,18 @@
       "headline": { "displayName": "Headline", "purpose": "Roger Wei in the menu bar." },
       "title": { "displayName": "Title", "purpose": "Window title, menus, painted buttons." },
       "body": { "displayName": "Body", "purpose": "Sentences on a card; max ~68ch." },
-      "label": { "displayName": "Label", "purpose": "STACK CONTENTS, skip-keys, card count." }
+      "label": { "displayName": "Label", "purpose": "STACK CONTENTS, skip-keys, field stamp." }
     },
     "shadows": [
-      { "name": "window-drop", "value": "6px 8px 10px rgb(0 0 0 / 0.28)", "purpose": "The one stack window on the desk." }
+      { "name": "window-drop", "value": "6px 8px 10px rgb(0 0 0 / 0.28)", "purpose": "The STACK CONTENTS rail." },
+      { "name": "bed-drop", "value": "6px 8px 10px rgb(0 0 0 / 0.18)", "purpose": "Each field window." }
     ],
     "motion": [
-      { "name": "dissolve", "value": "opacity 280ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Incoming card dissolve." },
-      { "name": "reduced", "value": "animation: none", "purpose": "Cards snap when prefers-reduced-motion: reduce." }
+      { "name": "field-scroll", "value": "scroll-behavior: smooth", "purpose": "Hash jumps walk the field." },
+      { "name": "reduced", "value": "scroll-behavior: auto", "purpose": "Hashes snap when prefers-reduced-motion: reduce." }
     ],
     "breakpoints": [
-      { "name": "stack", "value": "800px" }
+      { "name": "stack", "value": "900px" }
     ]
   },
   "components": [
@@ -48,20 +49,20 @@
   ],
   "narrative": {
     "northStar": "The HyperCard Shoebox",
-    "overview": "The site is one classic Macintosh stack sitting on a grey desk. Skip-keys flip cards inside the same window. The world is one-bit: black ink on white paper, painted invert buttons, Chicago-like pixel chrome, Geneva-like body.",
+    "overview": "The site is one HyperCard field sitting on a grey desk. Skip-keys jump to a window. The world is one-bit: black ink on white paper, painted invert buttons, Chicago-like pixel chrome, Geneva-like body.",
     "keyCharacteristics": [
-      "One window. One visible card. Ten skip-keys.",
+      "One scrolling field. Ten skip-keys. Many small stack windows.",
       "Painted invert buttons, not pills or ghosts.",
-      "Fixed card rectangle; dissolve between cards.",
+      "Plaza Beds grouping in HyperCard chrome.",
       "Empty photo beds stay labeled empty."
     ],
     "rules": [
       { "name": "The One-Bit Rule", "body": "Do not add a brand color. Invert is the only emphasis.", "section": "colors" },
       { "name": "The Two-Face Rule", "body": "Pixel type for chrome. Source Sans for sentences.", "section": "typography" },
-      { "name": "The One-Window Rule", "body": "Only the stack casts a shadow.", "section": "elevation" }
+      { "name": "The Window Rule", "body": "Only stack windows cast a shadow.", "section": "elevation" }
     ],
     "dos": [
-      "Do flip cards inside the one window.",
+      "Do jump skip-keys to a window in the one field.",
       "Do invert a painted button to mark the primary action.",
       "Do keep empty photo beds empty and labeled.",
       "Do keep Roger's copy, including the spellings he wrote."

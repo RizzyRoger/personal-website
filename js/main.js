@@ -1,99 +1,112 @@
 (function () {
   var keys = document.querySelectorAll(".key[data-nav]");
-  var cards = [];
+  var aliases = {
+    bio: "portrait",
+    now: "portrait",
+    "dogs-copy": "dogs",
+    mods: "e30",
+    album: "books",
+    "civic-plan": "civic"
+  };
+
+  var sections = [];
   for (var i = 0; i < keys.length; i++) {
     var id = keys[i].getAttribute("data-nav");
     var el = id ? document.getElementById(id) : null;
-    if (el) cards.push({ id: id, el: el, key: keys[i] });
+    if (el) sections.push({ id: id, el: el, key: keys[i] });
   }
 
-  var numEl = document.getElementById("card-num");
-  var nameEl = document.getElementById("card-name");
-  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var current = cards.length ? cards[0].id : "";
-
-  function indexOf(id) {
-    for (var n = 0; n < cards.length; n++) {
-      if (cards[n].id === id) return n;
-    }
-    return 0;
+  function keyOf(id) {
+    return aliases[id] || id;
   }
 
-  function show(id, flip) {
-    var found = false;
-    for (var c = 0; c < cards.length; c++) {
-      if (cards[c].id === id) found = true;
-    }
-    if (!found) id = cards[0] && cards[0].id;
-    current = id;
-
+  function setOn(id) {
+    var live = keyOf(id);
     for (var k = 0; k < keys.length; k++) {
-      var on = keys[k].getAttribute("data-nav") === id;
+      var on = keys[k].getAttribute("data-nav") === live;
       keys[k].classList.toggle("is-on", on);
       if (on) keys[k].setAttribute("aria-current", "true");
       else keys[k].removeAttribute("aria-current");
     }
-
-    for (var s = 0; s < cards.length; s++) {
-      var card = cards[s].el;
-      var active = cards[s].id === id;
-      card.classList.toggle("is-on", active);
-      card.hidden = !active;
-      if (active && flip && !still) {
-        card.classList.remove("is-flip");
-        void card.offsetWidth;
-        card.classList.add("is-flip");
-      }
-    }
-
-    var idx = indexOf(id);
-    if (numEl) numEl.textContent = String(idx + 1);
-    if (nameEl && cards[idx]) {
-      nameEl.textContent = cards[idx].el.getAttribute("data-title") || id;
-    }
   }
 
-  function go(id, writeHash) {
-    if (!id || id === current) {
-      show(id || current, false);
-      return;
-    }
-    show(id, true);
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hold = 0;
+
+  function jump(id, writeHash) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    hold += 1;
+    var scroller = document.scrollingElement || document.documentElement;
+    var top = el.getBoundingClientRect().top + scroller.scrollTop;
+    scroller.scrollTo({
+      top: Math.max(0, top - 8),
+      behavior: still ? "auto" : "smooth"
+    });
+    setOn(id);
     if (writeHash !== false && history.replaceState) {
       history.replaceState(null, "", "#" + id);
     }
+    window.setTimeout(function () {
+      hold = Math.max(0, hold - 1);
+    }, still ? 50 : 420);
   }
 
-  function alias(hash) {
-    if (hash === "now" || hash === "bio") return "portrait";
-    if (hash === "dogs-copy") return "dogs";
-    if (hash === "mods") return "e30";
-    if (hash === "civic-plan") return "civic";
-    if (hash === "album") return "books";
-    return hash;
+  var hash = (location.hash || "").replace(/^#/, "");
+  if (hash && document.getElementById(hash)) {
+    setOn(hash);
+    window.setTimeout(function () {
+      jump(hash, false);
+    }, 0);
+    window.addEventListener("load", function () {
+      jump(hash, false);
+    });
+  } else if (sections.length) {
+    setOn(sections[0].id);
   }
 
-  var hash = alias((location.hash || "").replace(/^#/, ""));
-  show(hash || (cards[0] && cards[0].id), false);
-
-  window.addEventListener("hashchange", function () {
-    var next = alias((location.hash || "").replace(/^#/, ""));
-    if (next) go(next, false);
-  });
-
-  var prev = document.getElementById("prev");
-  var next = document.getElementById("next");
-  if (prev) {
-    prev.addEventListener("click", function () {
-      var i = indexOf(current);
-      go(cards[i === 0 ? cards.length - 1 : i - 1].id);
+  for (var k = 0; k < keys.length; k++) {
+    keys[k].addEventListener("click", function (e) {
+      var id = this.getAttribute("data-nav");
+      if (!id || !document.getElementById(id)) return;
+      e.preventDefault();
+      jump(id);
     });
   }
-  if (next) {
-    next.addEventListener("click", function () {
-      var i = indexOf(current);
-      go(cards[i === cards.length - 1 ? 0 : i + 1].id);
+
+  var jumps = document.querySelectorAll('a[href^="#"]');
+  for (var j = 0; j < jumps.length; j++) {
+    if (jumps[j].classList.contains("key")) continue;
+    jumps[j].addEventListener("click", function (e) {
+      var id = (this.getAttribute("href") || "").replace(/^#/, "");
+      if (!id || !document.getElementById(id)) return;
+      e.preventDefault();
+      jump(id);
     });
+  }
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var current = sections[0].id;
+    var spy = new IntersectionObserver(
+      function (entries) {
+        if (hold) return;
+        var visible = [];
+        for (var e = 0; e < entries.length; e++) {
+          if (!entries[e].isIntersecting) continue;
+          visible.push(entries[e].target.id);
+        }
+        if (!visible.length) return;
+        for (var s = 0; s < sections.length; s++) {
+          if (visible.indexOf(sections[s].id) !== -1) {
+            current = sections[s].id;
+            break;
+          }
+        }
+        setOn(current);
+      },
+      { rootMargin: "-18% 0px -62% 0px", threshold: 0 }
+    );
+    for (var n = 0; n < sections.length; n++) spy.observe(sections[n].el);
   }
 
   var find = document.querySelector(".menu.is-find");
