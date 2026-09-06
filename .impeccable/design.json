@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-06T18:20:00.000Z",
+  "title": "Design System: Roger Wei",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "tonalRamp": ["#ffffff", "#ececec", "#d4d4d4", "#b0b0b0", "#5a5a5a", "#2a2a2a", "#000000"] },
+      "ink": { "role": "primary", "displayName": "Ink", "canonical": "#000000", "tonalRamp": ["#000000", "#2a2a2a", "#5a5a5a", "#8a8a8a", "#d4d4d4", "#ececec", "#ffffff"] },
+      "desk": { "role": "neutral", "displayName": "Desk", "canonical": "#d4d4d4", "tonalRamp": ["#b0b0b0", "#c4c4c4", "#d4d4d4", "#e2e2e2", "#ececec", "#f6f6f6", "#ffffff"] },
+      "chrome": { "role": "neutral", "displayName": "Chrome", "canonical": "#ececec", "tonalRamp": ["#c8c8c8", "#d8d8d8", "#ececec", "#f4f4f4", "#ffffff"] },
+      "dim": { "role": "neutral", "displayName": "Dim", "canonical": "#5a5a5a", "tonalRamp": ["#2a2a2a", "#5a5a5a", "#8a8a8a", "#b0b0b0"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Card titles in Silkscreen." },
+      "headline": { "displayName": "Headline", "purpose": "Roger Wei in the menu bar." },
+      "title": { "displayName": "Title", "purpose": "Window title, menus, painted buttons." },
+      "body": { "displayName": "Body", "purpose": "Sentences on a card; max ~68ch." },
+      "label": { "displayName": "Label", "purpose": "STACK CONTENTS, skip-keys, card count." }
+    },
+    "shadows": [
+      { "name": "window-drop", "value": "6px 8px 10px rgb(0 0 0 / 0.28)", "purpose": "The one stack window on the desk." }
+    ],
+    "motion": [
+      { "name": "dissolve", "value": "opacity 280ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Incoming card dissolve." },
+      { "name": "reduced", "value": "animation: none", "purpose": "Cards snap when prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "800px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Painted invert",
+      "kind": "button",
+      "refersTo": "paint-fill",
+      "description": "Primary HyperCard button; invert is the only emphasis.",
+      "html": "<a class=\"ds-paint ds-paint-fill\" href=\"#marvin\">Marvin</a>",
+      "css": ".ds-paint { display: inline-block; padding: 0.4rem 0.7rem; border: 2px solid #000; background: #fff; color: #000; font-family: Silkscreen, monaco, monospace; font-size: 0.68rem; text-decoration: none; } .ds-paint-fill, .ds-paint:hover { background: #000; color: #fff; }"
+    },
+    {
+      "name": "Skip-key on",
+      "kind": "nav",
+      "refersTo": "key-on",
+      "description": "Live stack-contents row.",
+      "html": "<a class=\"ds-key ds-key-on\" href=\"#marvin\">Marvin</a>",
+      "css": ".ds-key { display: block; padding: 0.32rem 0.4rem; color: #000; font-family: Silkscreen, monaco, monospace; font-size: 0.62rem; text-decoration: none; } .ds-key-on { background: #000; color: #fff; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The HyperCard Shoebox",
+    "overview": "The site is one classic Macintosh stack sitting on a grey desk. Skip-keys flip cards inside the same window. The world is one-bit: black ink on white paper, painted invert buttons, Chicago-like pixel chrome, Geneva-like body.",
+    "keyCharacteristics": [
+      "One window. One visible card. Ten skip-keys.",
+      "Painted invert buttons, not pills or ghosts.",
+      "Fixed card rectangle; dissolve between cards.",
+      "Empty photo beds stay labeled empty."
+    ],
+    "rules": [
+      { "name": "The One-Bit Rule", "body": "Do not add a brand color. Invert is the only emphasis.", "section": "colors" },
+      { "name": "The Two-Face Rule", "body": "Pixel type for chrome. Source Sans for sentences.", "section": "typography" },
+      { "name": "The One-Window Rule", "body": "Only the stack casts a shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do flip cards inside the one window.",
+      "Do invert a painted button to mark the primary action.",
+      "Do keep empty photo beds empty and labeled.",
+      "Do keep Roger's copy, including the spellings he wrote."
+    ],
+    "donts": [
+      "Don't introduce a second accent color or a color hero.",
+      "Don't use Inter, Space Grotesk, Archivo, or another AI-default face.",
+      "Don't add a /plaza route or a live-site backup of Plaza Beds.",
+      "Don't invent biography, metrics, or testimonials."
+    ]
+  }
+}

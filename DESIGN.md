@@ -1,229 +1,206 @@
 ---
 name: Roger Wei
-description: Vinyl Plot — black shop, unprinted grey vinyl, cutter-red path, roll-edge keys.
+description: HyperCard Stack — one-bit shoebox, painted invert buttons, pixel chrome.
 colors:
-  shop: "#0a0a0a"
-  void: "#010101"
-  vinyl: "#a0a0a2"
-  ink: "#121212"
-  ink-soft: "#2c2c2e"
-  cut: "#c41e1e"
-  edge: "#c5c7cc"
-  roll-lit: "#6b696a"
+  paper: "#ffffff"
+  ink: "#000000"
+  desk: "#d4d4d4"
+  chrome: "#ececec"
+  dim: "#5a5a5a"
 typography:
   display:
-    fontFamily: "Saira Extra Condensed, Arial Narrow, sans-serif"
-    fontSize: "clamp(2rem, 6vw, 3.4rem)"
-    fontWeight: 700
-    lineHeight: 0.85
-    letterSpacing: "0"
+    fontFamily: "Silkscreen, ChiKareGo, Krungthep, monaco, monospace"
+    fontSize: "clamp(1.05rem, 2.4vw, 1.45rem)"
+    fontWeight: 400
+    lineHeight: 1.15
+    letterSpacing: "normal"
   headline:
-    fontFamily: "Saira Extra Condensed, Arial Narrow, sans-serif"
-    fontSize: "clamp(1.5rem, 3vw, 2.1rem)"
+    fontFamily: "Silkscreen, ChiKareGo, Krungthep, monaco, monospace"
+    fontSize: "clamp(0.85rem, 2vw, 1.05rem)"
     fontWeight: 700
-    lineHeight: 1
+    lineHeight: 1.1
     letterSpacing: "0.02em"
   title:
-    fontFamily: "Saira Extra Condensed, Arial Narrow, sans-serif"
-    fontSize: "1.35rem"
-    fontWeight: 700
+    fontFamily: "Silkscreen, ChiKareGo, Krungthep, monaco, monospace"
+    fontSize: "0.68rem"
+    fontWeight: 400
     lineHeight: 1
-    letterSpacing: "0.02em"
+    letterSpacing: "normal"
   body:
-    fontFamily: "Saira, Avenir Next Condensed, sans-serif"
+    fontFamily: "Source Sans 3, Geneva, Lucida Grande, Tahoma, sans-serif"
     fontSize: "1.05rem"
     fontWeight: 400
     lineHeight: 1.45
     letterSpacing: "normal"
   label:
-    fontFamily: "Saira Extra Condensed, Arial Narrow, sans-serif"
-    fontSize: "1.15rem"
-    fontWeight: 600
+    fontFamily: "Silkscreen, ChiKareGo, Krungthep, monaco, monospace"
+    fontSize: "0.62rem"
+    fontWeight: 400
     lineHeight: 1
-    letterSpacing: "0.06em"
+    letterSpacing: "normal"
 rounded:
-  sheet: "0"
-  roll: "2.4rem 0.2rem 0.2rem 2.4rem"
-  core: "99px"
+  none: "0"
 spacing:
-  grid: "0.65rem"
-  feed: "1.15rem"
-  roll: "1.35rem"
-  inset: "clamp(1rem, 4vw, 2.5rem)"
+  card: "1.1rem 1.25rem 1.4rem"
+  key: "0.32rem 0.4rem"
+  paint: "0.4rem 0.7rem"
+  window: "1.1rem"
 components:
-  skip:
-    backgroundColor: "{colors.cut}"
-    textColor: "#ffffff"
-    typography: "{typography.label}"
-    padding: "0.4rem 0.7rem"
-  roll-link:
+  paint-fill:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.title}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.paint}"
+  paint:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.title}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.paint}"
+  paint-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.title}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.paint}"
+  key:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    padding: "0.35rem 0.15rem"
-  roll-link-on:
-    backgroundColor: "transparent"
-    textColor: "{colors.cut}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.key}"
+  key-on:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
     typography: "{typography.label}"
-  vinyl:
-    backgroundColor: "{colors.vinyl}"
+    rounded: "{rounded.none}"
+    padding: "{spacing.key}"
+  menu:
+    backgroundColor: "transparent"
     textColor: "{colors.ink}"
-    rounded: "{rounded.sheet}"
-  vinyl-copy:
-    backgroundColor: "{colors.vinyl}"
-    textColor: "{colors.ink-soft}"
-    rounded: "{rounded.sheet}"
-    padding: "1.6rem 1.7rem 1.8rem"
-  vinyl-tile:
-    backgroundColor: "{colors.vinyl}"
-    textColor: "{colors.ink-soft}"
-    rounded: "{rounded.sheet}"
-    height: "7.5rem"
-  job:
-    backgroundColor: "{colors.void}"
-    textColor: "{colors.edge}"
-    typography: "{typography.display}"
+    typography: "{typography.title}"
+    rounded: "{rounded.none}"
+    padding: "0.28rem 0.45rem"
+  menu-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.title}"
+    rounded: "{rounded.none}"
+    padding: "0.28rem 0.45rem"
 ---
 
 # Design System: Roger Wei
 
 ## Overview
 
-**Creative North Star: "Vinyl Plot"**
+**Creative North Star: "The HyperCard Shoebox"**
 
-The site is a wrap plotter in a black shop. Unprinted grey vinyl feeds past a cutter. A visitor reads ROGER WEI on the sticky rail, sees a huge empty portrait sheet, then opens Marvin, Lithium, or Group Four from the roll. The world is a working bed, not a letter and not a parked car.
+The site is one classic Macintosh stack sitting on a grey desk. A visitor reads **Roger Wei** in the menu bar, opens the Welcome card, then paints a button to Marvin, Lithium, or Group Four. Skip-keys flip cards inside the same window; they do not leave the stack.
 
-Personality is job-ticket and industrial: condensed uppercase on the machine, quieter sentences on the vinyl. Density is a vertical feed of large rectangles. The shop stays dark; the material that carries content is grey film, stroked by the cutter.
+The world is one-bit: black ink on white paper, hard 2px rules, painted invert for the live control. Chrome is Chicago-like pixel type (Silkscreen). Sentences are Geneva-like (Source Sans 3). Photos that belong on a card are either a Floyd–Steinberg 1-bit plate or a grayscale contrast punch — never a color car-hero.
 
-Confirmed refusals: a centered cream editorial page, a vehicle or wrap livery as identity, serif display type, aluminum decks, and amber lamps.
+Plaza Beds, Vinyl Plot, and the cream site are retired on `main`. Restore Plaza Beds from git branch `plaza-beds` or tag `plaza-beds-backup`.
 
 **Key Characteristics:**
-- Black shop ground with a near-black cutter rail
-- Unprinted grey vinyl (flat fill + tiled film) on both the roll and every sheet
-- Cutter-red used only as path: stroke, laser, focus, selection, lit key
-- Saira Extra Condensed job lettering; Saira for sentences
-- Four primary keys printed vertically on the roll edge
-- Square sheets with opposite-corner registration marks
-- Labeled empty slots stay empty until real content exists
+
+- One window. One visible card. Ten skip-keys.
+- Painted invert buttons, not pills or ghosts.
+- Fixed card rectangle; dissolve between cards; snap when `prefers-reduced-motion`.
+- Empty photo beds stay labeled empty until a file lands at the `data-src` path.
 
 ## Colors
 
-A dark shop with one material (grey vinyl) and one tool color (cutter red). Ink sits on vinyl; edge type sits on the shop.
+The palette is a 1-bit Macintosh desk: paper, ink, and two greys for chrome.
 
 ### Primary
-- **Cutter Red** (`cut`): The tool path. 1px sheet borders, the 2px laser, `:focus-visible` rings, text selection, skip-link fill, and the lit roll key. Never a page fill or a sheet fill.
+- **Ink** (`#000000`): rules, type, invert fills, the live skip-key.
 
 ### Neutral
-- **Shop** (`shop`): Full-page ground. The room around the bed.
-- **Void** (`void`): Sticky cutter rail. Darker than the shop so the job lockup reads as machine, not page chrome.
-- **Vinyl** (`vinyl`): Unprinted sheet and roll field. Always paired with the vinyl film tile (`assets/vinyl.png` at 420px).
-- **Ink** (`ink`): Job type on vinyl — roll keys at rest, “Portrait” on the hero sheet.
-- **Ink Soft** (`ink-soft`): Sentences and empty-tile marks on vinyl. Softer than ink so unfilled slots stay quiet.
-- **Edge** (`edge`): Type on the shop — body default and the ROGER WEI lockup.
-- **Roll Lit** (`roll-lit`): Dim plot status: rail meta, section marks, empty-slot notes.
+- **Paper** (`#ffffff`): cards, menu bar, invert text.
+- **Desk** (`#d4d4d4`): page ground, with a 4px scanline hatch.
+- **Chrome** (`#ececec`): stack-contents rail and the Prev/Next bar.
+- **Dim** (`#5a5a5a`): card count and empty-bed notes only.
 
 ### Named Rules
-**The Cutter-Red Rule.** Cut is the path, not the paint. It outlines sheets, draws the laser, lights the current key, and marks focus. It does not fill the shop or a vinyl field.
-
-**The Unprinted-Vinyl Rule.** Sheets and the roll are the same grey film. Copy and labels sit in ink on vinyl. Do not introduce a second paper.
+**The One-Bit Rule.** Do not add a brand color. Invert is the only emphasis.
 
 ## Typography
 
-**Display Font:** Saira Extra Condensed (Arial Narrow fallback)
-**Body Font:** Saira (Avenir Next Condensed fallback)
+**Display Font:** Silkscreen (ChiKareGo, Krungthep, monaco)
+**Body Font:** Source Sans 3 at variation weight 500 (Geneva, Lucida Grande, Tahoma)
 
-**Character:** Extra Condensed is the plotter’s job lettering — tight, uppercase, heavy. Saira carries sentences on the sheets. The pairing is shop-ticket plus readable copy, not editorial serif.
+**Character:** Pixel chrome names the stack; a humanist sans reads the card. Not Archivo, not Inter, not Space Grotesk.
 
 ### Hierarchy
-- **Display** (700, `clamp(2rem, 6vw, 3.4rem)`, line-height 0.85, tracking 0, uppercase): ROGER WEI on the cutter rail. At 720px and below, size drops to `clamp(1.5rem, 8vw, 2.2rem)`.
-- **Headline** (700, `clamp(1.5rem, 3vw, 2.1rem)`, tracking 0.02em, uppercase): Type printed on a hero sheet (Portrait) and the hero section mark.
-- **Title** (700, 1.35rem, tracking 0.02em, uppercase): Feed marks — Bio, Now, Photos, and the rest.
-- **Body** (400, 1.05rem, line-height 1.45): Sentences on vinyl. Max useful width on copy sheets is 42rem.
-- **Label** (600, 1.15rem, tracking 0.06em, uppercase): Roll keys. Smaller tracked Extra Condensed (0.92rem / 0.12em, or 0.95rem / 0.06em) is for slot notes and rail plot status, not a second family.
+- **Display** (Silkscreen, `clamp(1.05rem, 2.4vw, 1.45rem)`): card titles.
+- **Headline** (Silkscreen 700): **Roger Wei** in the menu bar.
+- **Title** (Silkscreen 0.68rem): window title, menus, painted buttons, Prev/Next.
+- **Body** (Source Sans 3, 1.05rem / 1.45, max ~68ch): biography and project copy, including the author's own spelling.
+- **Label** (Silkscreen 0.62rem, uppercase on rail headings): STACK CONTENTS, card count, skip-keys.
 
 ### Named Rules
-**The Job-Lettering Rule.** Names, marks, and keys are Saira Extra Condensed in uppercase. Sentences on vinyl are Saira. Do not bring a serif into the shop.
+**The Two-Face Rule.** Pixel type for chrome. Source Sans for sentences. Do not set body copy in Silkscreen.
 
 ## Layout
 
-The spatial model is a plotter bed: sticky cutter rail on top, a tall vinyl roll of keys on the left, a single-column feed of sheets on the right.
+A full-bleed desk. A centered window (`min(1080px, calc(100% - 1.5rem))`) with a 2px ink border. Inside: striped title bar, then a two-column work area — 11.5rem STACK CONTENTS on the left, one card stage on the right (`min-height: min(72vh, 42rem)`). Prev / card name / Next sit on a chrome footer.
 
-The bed is a two-column grid — 4.5rem roll + fluid feed — with `spacing.inset` on the right and 1.25rem / 4rem vertical padding. Below 720px the roll column is 2.7rem; page padding tightens to 0.7rem. The roll stays sticky (`top: 4.6rem` desktop, `3.8rem` mobile) and fills the viewport height under the rail. The feed stacks sheets with `spacing.feed`.
+Welcome is a two-column card: 1-bit plate on the left, bio and painted buttons on the right. Below 800px the work area stacks (contents as a 2-column key grid) and Welcome becomes one column.
 
-Photo and year windows use a 4-column grid (`spacing.grid`); hobby uses 3. Both collapse to 2 columns at 720px. The portrait sheet is square, `width: min(100%, 36rem)`, and the hero vinyl is at least `min(68vh, 38rem)` (70vw on small screens).
-
-The cutter head is a decorative overlay on the bed. It translates to the sheet whose midpoint crosses ~38% of the viewport; `prefers-reduced-motion: reduce` freezes it.
-
-### Named Rules
-**The Feed-and-Roll Rule.** Primary navigation lives as vertical keys on the roll. Content is a stack of vinyl sheets to the right. Do not move the keys into a horizontal text bar.
+Hashes `#now` / `#bio` open About; `#dogs-copy` opens Dogs; `#mods` opens Dream car; `#album` opens Books; `#civic-plan` opens Civic. `/marvin`, `/lithium`, `/group-four` redirect onto the matching card.
 
 ## Elevation & Depth
 
-Depth is shop shadow: dark, soft, directional. There are no inset metal wells and no glowing lamps. The roll casts to the right; sheets sit slightly off the bed; the sheet under the cutter lifts a step; the carriage drops a tight shadow; the laser has a short red bloom.
+Depth is a hard Macintosh window, not a soft card stack.
 
 ### Shadow Vocabulary
-- **Roll falloff** (`box-shadow: 10px 0 24px rgb(0 0 0 / 0.55)`): The standing vinyl roll.
-- **Sheet rest** (`box-shadow: 0 8px 18px rgb(0 0 0 / 0.35)`): Every vinyl sheet at rest.
-- **Sheet under cutter** (`box-shadow: 0 10px 28px rgb(0 0 0 / 0.45)`): The feed sheet currently in the beam.
-- **Carriage** (`filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.55))`): The cutter-head raster.
-- **Laser bloom** (`box-shadow: 1px 2px 6px rgb(196 30 30 / 0.45)`): The 2px cut path under the head.
+- **Window drop** (`box-shadow: 6px 8px 10px rgb(0 0 0 / 0.28)`): the one stack window on the desk.
 
 ### Named Rules
-**The Shop-Shadow Rule.** Shadows are dark falloffs off the roll and under sheets. Do not add inset deck wells or amber glows.
+**The One-Window Rule.** Only the stack casts a shadow. Buttons and keys stay flat.
 
 ## Shapes
 
-Vinyl sheets are sharp rectangles (`rounded.sheet` = 0) with a 1px Cut stroke. Opposite corners carry 10px L-shaped registration marks, inset 6px — top-left and bottom-right. The roll is the only rounded mass: fat left radius, almost-square right (`2.4rem 0.2rem 0.2rem 2.4rem`; `1.4rem / 0.15rem` under 720px). The roll core is a 0.45rem pill.
+Every control is a rectangle. Radius is 0. Borders are 2px solid ink. The title-bar close box is an 0.85rem square. The menu-bar mark is a 5-point ink polygon, not a real Apple logo.
 
-### Named Rules
-**The Registration Rule.** Sheets stay square-cornered, stroked in Cut, with L-marks at opposite corners. Only the roll gets the fat-left radius.
+Photo frames (`.plate`, `.bare`) are the same 2px ink rectangle. Book covers use a 3 / 4 frame.
 
 ## Components
 
-### Buttons
-The only filled control is the skip link: Cut field, white Extra Condensed uppercase, padding 0.4rem 0.7rem, no radius. Hover is unused; `:focus` slides it into view. There is no primary marketing button.
+### Painted buttons
+- **Shape:** 2px ink rectangle, no radius.
+- **Primary (`.paint.is-fill`):** ink fill, paper type.
+- **Rest (`.paint`, `.gate`, `.step`):** paper fill, ink type.
+- **Hover / focus:** invert. Focus ring is a 2px ink outline, offset 3px.
 
-- **Shape:** square (0)
-- **Primary (skip):** Cut fill, white type
-- **Hover / Focus:** 2px Cut outline, 3px offset (global `:focus-visible`)
+### Skip-keys
+- **Style:** Silkscreen labels in the left rail.
+- **On:** ink fill, paper type, `aria-current="true"`.
+- **Hover (off):** desk grey wash.
 
-### Cards / Containers
-Vinyl sheets are the only content surface.
+### Cards
+- **Corner:** 0. Absolute, one `is-on` at a time; others `[hidden]`.
+- **Background:** paper.
+- **Motion:** 280ms dissolve (`cubic-bezier(0.16, 1, 0.3, 1)`), contrast punch on the incoming card. Reduced motion snaps.
 
-- **Corner Style:** square, plus registration L-marks on `::before` / `::after`
-- **Background:** Vinyl fill + film tile at 420px
-- **Shadow Strategy:** sheet rest; under-cutter lift when in the beam
-- **Border:** 1px Cut
-- **Internal Padding:** copy sheets 1.6rem 1.7rem 1.8rem; portrait and tiles have no copy inset
-- **Copy:** Ink Soft, max-width 42rem
-- **Tiles:** 7.5rem min-height, Extra Condensed centered uppercase; year windows 4.5rem min-height at 1.6rem
+### Photo beds
+- **Filled:** grayscale + contrast 1.8, or the Welcome 1-bit PNG with `image-rendering: pixelated`.
+- **Empty:** labeled note naming the expected `assets/…` path. Never a fake photograph.
 
 ### Navigation
-Roll keys are Extra Condensed uppercase, vertical (`writing-mode: vertical-rl` + 180° rotate), Ink at rest. Hover and current page are Cut; current page also gets a 2px Cut hair on the left (the side that reads as the key’s baseline after rotation). No pills, no aluminum keys.
-
-### Signature: Cutter rail
-Sticky Void bar. ROGER WEI in Display next to the handwritten RW raster (`assets/rw-script.png`, 2.4rem; 1.7rem on small screens). Opposite: plot status in Extra Condensed, Roll Lit, uppercase (“Plot · unprinted”, “Plot · Marvin”). 1px seam `#1c1c1c` under the rail.
-
-### Signature: Cutter head
-Decorative carriage raster (`assets/cutter-head.png`) plus a full-width 2px Cut laser. Tracks the in-view sheet. Hidden from assistive tech. Pointer-events none.
-
-### Signature: Empty slot note
-Extra Condensed, 0.92rem, tracking 0.12em, uppercase, Roll Lit. Sits under an unfilled sheet. When a portrait image loads, the on-sheet label may flip to mix-blend difference — that is a filled-state exception, not a second type style to reuse empty.
+Menu bar is decorative Stack / Card plus Find (focuses the first key). The rail is the real directory. Mobile keeps the same keys; it does not invent a hamburger.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the shop black and put all content on unprinted grey vinyl with the film tile.
-- **Do** stroke sheets in Cut at 1px and mark opposite corners with registration L’s.
-- **Do** letter the name, marks, and keys in Saira Extra Condensed uppercase.
-- **Do** keep About me / Marvin / Lithium / Group Four as vertical keys on the roll; light the current key in Cut.
-- **Do** leave labeled empty vinyl when portrait, bio, hobbies, photos, contact, resume, or demos are missing.
-- **Do** use a 2px Cut focus ring with 3px offset.
+- **Do** flip cards inside the one window.
+- **Do** invert a painted button to mark the primary action on a card.
+- **Do** keep empty photo beds empty and labeled.
+- **Do** keep Roger's copy, including the spellings he wrote.
 
 ### Don't:
-- **Don't** set the page as a centered cream letter or any serif-editorial column.
-- **Don't** use a parked car, wrap livery, or vehicle silhouette as identity.
-- **Don't** fill empty sheets with invented bio, metrics, quotes, or hobby names.
-- **Don't** fill large surfaces with Cut — it is the path only.
-- **Don't** round vinyl sheets into cards or restyle the roll keys as a horizontal text bar.
-- **Don't** revive aluminum decks, amber lamps, or cream/serif type from the discarded rack world.
+- **Don't** introduce a second accent color or a color hero.
+- **Don't** use Inter, Space Grotesk, Archivo, or another AI-default face.
+- **Don't** add a `/plaza` route or a live-site backup of Plaza Beds.
+- **Don't** invent biography, metrics, or testimonials.

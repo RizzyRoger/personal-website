@@ -16,11 +16,11 @@ People who want to know who Roger Wei is, then look at the projects he ships: Ma
 
 ## Product Purpose
 
-A personal site on one scrolling plaza. The person is first, then the work, then the rest of the field. Success is a visitor who remembers the name and can skip to a project or a later bed in one click.
+A personal site as one HyperCard stack. The person is first, then the work, then the rest of the field. Success is a visitor who remembers the name and can flip to a project or a later card in one click.
 
 ## Positioning
 
-One page. A sticky directory of skip keys: About, Marvin, Lithium, Group Four, Future, Dogs, Dream car, Quote, Books, Civic. Not a blog, not a CMS, not an app. `/marvin`, `/lithium`, and `/group-four` redirect to the matching hash.
+One stack. A left directory of skip keys: About, Marvin, Lithium, Group Four, Future, Dogs, Dream car, Quote, Books, Civic. Not a blog, not a CMS, not an app. `/marvin`, `/lithium`, and `/group-four` redirect to the matching hash.
 
 ## Operating Context
 
@@ -28,7 +28,7 @@ Static files in this repo. Live site: https://iamroger.space. Marvin also has a 
 
 ## Capabilities and Constraints
 
-- One scrolling About field: name, portrait slot (`assets/portrait.jpg`), bio, now/contact, Marvin, Lithium, Group Four, Spotify, future plan, dogs, dream car, quote, books, album, Civic.
+- One stack of cards: Welcome (1-bit portrait plate, bio, contact, painted project buttons), Marvin, Lithium, Group Four, future plan, dogs, dream car, quote, books plus album slot, Civic.
 - Image beds stay empty until a file is dropped at the `data-src` path on that bed.
 - Body copy that is not a real project teaser is lorem ipsum, meant to be replaced.
 - No backend, no contact form, no analytics in this pass.
@@ -39,12 +39,12 @@ Static files in this repo. Live site: https://iamroger.space. Marvin also has a 
 - Name: Roger Wei
 - Domain: iamroger.space
 - Project names: Marvin (local voice AI agent), Lithium (macOS site time-limiter), Group Four (Chrome tab manager)
-- Incumbent visual world: Eco-brutalism / Plaza Beds. Photographic concrete textures, harsh greys, Archivo wide-heavy cast lettering, flat vector plants, soil lips on every bed.
+- Incumbent visual world: HyperCard Stack (seed f1b3ddc6). One-bit black on white, painted invert buttons, Chicago-like pixel chrome, Geneva-like body, fixed card rectangles. Plaza Beds is kept on the `plaza-beds` git branch only.
 
 ## Evidence on Hand
 
 - Site markup: `index.html`, redirect pages at `marvin/index.html`, `lithium/index.html`, `group-four/index.html`, `css/styles.css`
-- No portrait file yet; later photos (`dogs.jpg`, `e30.jpg`, `album.jpg`, `civic.jpg`, `book-1.jpg` … `book-5.jpg`) are the same drop-in pattern
+- Welcome plate is `assets/portrait-1bit.png` (dithered from `assets/portrait.jpg`). Later photos (`dogs.jpg`, `e30.jpg`, `album.jpg`, `civic.jpg`, books) are the same drop-in pattern.
 - No recorded demo clips yet
 - Do not invent testimonials, metrics, or download numbers
 
@@ -53,7 +53,7 @@ Static files in this repo. Live site: https://iamroger.space. Marvin also has a 
 - Person first, then projects, then the rest of the field.
 - Leave labeled empty slots rather than fake photographs.
 - Keep the site static and hostable from the repo root.
-- Match the shipped Plaza Beds world unless a redesign is explicitly requested.
+- Match the shipped HyperCard stack unless a redesign is explicitly requested.
 
 ## Accessibility & Inclusion
 

@@ -1,0 +1,5 @@
+{
+  "origin": "assets/portrait.jpg",
+  "process": "PIL autocontrast + Floyd-Steinberg 1-bit dither, 720px wide",
+  "role": "Welcome card plate, HyperCard Stack"
+}

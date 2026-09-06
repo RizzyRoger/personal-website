@@ -1,0 +1,119 @@
+{
+  "hook": {
+    "enabled": true,
+    "limits": {
+      "maxFindings": 5,
+      "maxChars": 8000
+    }
+  },
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "barlow condensed",
+        "createdAt": "2026-08-24T00:08:57.814Z",
+        "reason": "Stereo Rack / Equal decks lock: faceplate engraving; DESIGN.md is rewritten at finish from the built world"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "barlow",
+        "createdAt": "2026-08-24T00:08:57.842Z",
+        "reason": "Stereo Rack / Equal decks lock: body companion to condensed engraving; DESIGN.md rewritten at finish"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          "css/styles.css",
+          "index.html",
+          "js/main.js",
+          "lithium/index.html",
+          "marvin/index.html"
+        ],
+        "createdAt": "2026-08-24T00:11:07.930Z",
+        "reason": "Stereo Rack replacement world locked from Equal decks comp; DESIGN.md still names the retired cream system until the finish documenter rewrites it"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "css/styles.css",
+          "index.html",
+          "js/main.js",
+          "lithium/index.html",
+          "marvin/index.html"
+        ],
+        "createdAt": "2026-08-24T00:11:07.956Z",
+        "reason": "Stereo Rack replacement world locked from Equal decks comp; DESIGN.md still names the retired cream system until the finish documenter rewrites it"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "*",
+        "files": [
+          "css/styles.css",
+          "index.html",
+          "js/main.js",
+          "lithium/index.html",
+          "marvin/index.html"
+        ],
+        "createdAt": "2026-08-24T00:11:07.983Z",
+        "reason": "Stereo Rack replacement world locked from Equal decks comp; DESIGN.md still names the retired cream system until the finish documenter rewrites it"
+      },
+      {
+        "rule": "design-system-shadow",
+        "value": "*",
+        "files": [
+          "css/styles.css",
+          "index.html",
+          "js/main.js",
+          "lithium/index.html",
+          "marvin/index.html"
+        ],
+        "createdAt": "2026-08-24T00:11:08.008Z",
+        "reason": "Stereo Rack replacement world locked from Equal decks comp; DESIGN.md still names the retired cream system until the finish documenter rewrites it"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "saira extra condensed",
+        "createdAt": "2026-08-24T22:01:35.671Z",
+        "reason": "Agent: Vinyl Plot replacement world; plotter job lettering. DESIGN.md still describes Stereo Rack until documenter rewrite."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "saira",
+        "createdAt": "2026-08-24T22:01:35.704Z",
+        "reason": "Agent: Vinyl Plot body face paired with Extra Condensed; DESIGN.md still describes Barlow until documenter rewrite."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "archivo",
+        "createdAt": "2026-08-26T04:14:13.260Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "silkscreen",
+        "createdAt": "2026-09-06T18:10:10.708Z",
+        "reason": "Agent: HyperCard Stack lock (seed f1b3ddc6); Chicago-like pixel chrome. DESIGN.md rewritten at finish."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "source sans 3",
+        "createdAt": "2026-09-06T18:10:10.737Z",
+        "reason": "Agent: HyperCard Stack lock (seed f1b3ddc6); Geneva-like body. DESIGN.md rewritten at finish."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          "css/styles.css",
+          "index.html",
+          "js/main.js"
+        ],
+        "createdAt": "2026-09-06T18:10:10.763Z",
+        "reason": "Agent: HyperCard replacement world; DESIGN.md still names Plaza/Vinyl until documenter rewrite."
+      }
+    ]
+  }
+}
